@@ -1,0 +1,479 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<main class="page-shell">
+		<section class="hero-section">
+			<div class="hero-panel">
+				<div class="eyebrow">Kopepix</div>
+				<h1>Videoeditointi & markkinointi, joka herättää huomion.</h1>
+				<p>Tarjoan digimarkkinointiin suunnattuja visuaalisia ratkaisuja ja ammattimaista videoeditointia. Autan brändiäsi näyttämään vakuuttavalta ja viestimään selkeästi.</p>
+				<div class="actions">
+					<a href="#services" class="button primary">Palvelut</a>
+					<a href="#contact" class="button secondary">Ota yhteyttä</a>
+				</div>
+				<div class="summary-grid">
+					<div class="summary-card">
+						<strong>Bränditarinasi</strong>
+						<span>Kerron yrityksesi tarinan tehokkaasti videoiden ja visuaalisuuden kautta.</span>
+					</div>
+					<div class="summary-card">
+						<strong>Konversiot</strong>
+						<span>Tuotan sisältöä, joka sitouttaa yleisöä ja tukee kampanjoiden tuloksia.</span>
+					</div>
+					<div class="summary-card">
+						<strong>Ammattimaisuus</strong>
+						<span>Kannattaa brändiäsi laadukkaalla tuotannolla ja sujuvalla viestinnällä.</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="hero-visual">
+				<div class="visual-card">
+					<div class="visual-header">
+						<span class="dot"></span>
+						<span class="dot"></span>
+						<span class="dot"></span>
+					</div>
+					<div class="visual-body">
+						<h2>Seuraava taso visuaaliselle markkinoinnille</h2>
+						<p>Kuvittele selkeä alusta, jossa viestisi näyttää vaikuttavalta, luotettavalta ja helposti lähestyttävältä.</p>
+						<ul>
+							<li>Tehokas videoeditointi</li>
+							<li>Kohdennettu sisältömarkkinointi</li>
+							<li>Moderni visuaalinen ilme</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="services" class="content-section services-section">
+			<div class="section-header">
+				<span class="section-label">Palvelut</span>
+				<h2>Skaalautuvat palvelut markkinointiisi</h2>
+				<p>Tuotan sisältöä, joka toimii niin somessa, verkkosivuilla kuin yritysvideoissakin. Jokainen kokonaisuus suunnitellaan kohdeyleisön mukaan.</p>
+			</div>
+
+			<div class="service-grid">
+				<article class="service-card">
+					<h3>Videoeditointi</h3>
+					<p>Leikkaus, värimäärittely, äänisuunnittelu ja julkaisuvalmiit videot eri kanaviin. Autan sinua luomaan tarinan, joka jää mieleen.</p>
+				</article>
+				<article class="service-card">
+					<h3>Markkinointisisältö</h3>
+					<p>Julkaisukalenterit, somekampanjat ja visuaaliset konseptit, jotka kasvattavat näkyvyyttä sekä sitouttavat yleisöä.</p>
+				</article>
+				<article class="service-card">
+					<h3>Brändisuunnittelu</h3>
+					<p>Yhtenäinen ilme, myyntiviestit ja visuaalinen linja, joka tukee brändisi asemaa ja luotettavuutta.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="content-section experience-section">
+			<div class="experience-panel">
+				<h2>Erityisosaamiseni</h2>
+				<p>Videoeditointini on suunnattu yrityksille, vaikuttajille ja markkinointitiimeille, jotka haluavat vaikuttavaa sisältöä ilman kompromisseja.</p>
+				<ul>
+					<li>Leikkaus ja rytmitys</li>
+					<li>Värikorjaus ja visuaaliset tehosteet</li>
+					<li>Äänen jälkikäsittely ja äänimaisema</li>
+					<li>Branding ja tarinankerronta</li>
+				</ul>
+			</div>
+			<div class="experience-stats">
+				<div class="stat-card">
+					<strong>8+</strong>
+					<span>vuoden kokemus video- ja markkinointiprojekteissa</span>
+				</div>
+				<div class="stat-card">
+					<strong>120+</strong>
+					<span>valmista videota ja markkinointikampanjaa</span>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="content-section contact-section">
+			<div class="contact-panel">
+				<h2>Ota yhteyttä ja aloitetaan yhteistyö</h2>
+				<p>Jos haluat lisätietoja videoeditointipalveluistani tai projekti-ideoiden toteutuksesta, lähetä viesti ja minä autan sinua rakentamaan vahvan digitaalisen läsnäolon.</p>
+				<a class="button primary" href="mailto:info@kopepix.fi">Lähetä tarjouspyyntö</a>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	:root {
+		color-scheme: dark;
+		font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+		background: #050b21;
+		color: #eef2ff;
+	}
+
+	html,
+	body {
+		margin: 0;
+		min-height: 100%;
+		background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.16), transparent 24%),
+			radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.14), transparent 24%),
+			linear-gradient(180deg, #04091f 0%, #05102d 100%);
+	}
+
+	.page-shell {
+		display: grid;
+		row-gap: 4rem;
+		padding: 3rem clamp(1.5rem, 4vw, 4rem);
+	}
+
+	.hero-section {
+		display: grid;
+		grid-template-columns: 1.25fr 0.95fr;
+		gap: 2rem;
+		align-items: center;
+	}
+
+	.hero-panel {
+		padding: 2.4rem;
+		border-radius: 32px;
+		background: rgba(12, 22, 55, 0.94);
+		border: 1px solid rgba(96, 165, 250, 0.14);
+		box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+	}
+
+	.eyebrow {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.7rem 1rem;
+		border-radius: 999px;
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		background: rgba(59, 130, 246, 0.14);
+		color: #7dd3fc;
+		margin-bottom: 1.6rem;
+	}
+
+	h1 {
+		font-size: clamp(3.3rem, 5vw, 5.1rem);
+		line-height: 0.96;
+		margin: 0;
+		max-width: 10ch;
+	}
+
+	.hero-panel p {
+		font-size: 1.05rem;
+		line-height: 1.85;
+		color: #cbd5e1;
+		margin-top: 1.6rem;
+		max-width: 72ch;
+	}
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin-top: 2rem;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem 1.75rem;
+		border-radius: 999px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+	}
+
+	.button.primary {
+		background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+		color: #fff;
+		box-shadow: 0 20px 45px rgba(56, 189, 248, 0.22);
+	}
+
+	.button.primary:hover {
+		transform: translateY(-2px);
+	}
+
+	.button.secondary {
+		background: rgba(148, 163, 184, 0.14);
+		color: #e2e8f0;
+		border: 1px solid rgba(148, 163, 184, 0.24);
+	}
+
+	.button.secondary:hover {
+		background: rgba(148, 163, 184, 0.22);
+	}
+
+	.summary-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		margin-top: 2.25rem;
+	}
+
+	.summary-card {
+		padding: 1.35rem 1.3rem;
+		border-radius: 24px;
+		background: rgba(15, 23, 64, 0.9);
+		border: 1px solid rgba(96, 165, 250, 0.14);
+	}
+
+	.summary-card strong {
+		display: block;
+		font-size: 1.05rem;
+		margin-bottom: 0.6rem;
+		color: #eef2ff;
+	}
+
+	.summary-card span {
+		color: #94a3b8;
+		line-height: 1.8;
+		font-size: 0.95rem;
+	}
+
+	.hero-visual {
+		display: flex;
+		justify-content: center;
+	}
+
+	.visual-card {
+		width: 100%;
+		max-width: 480px;
+		padding: 2rem;
+		border-radius: 32px;
+		background: linear-gradient(180deg, rgba(8, 18, 57, 0.98), rgba(16, 30, 74, 0.9));
+		border: 1px solid rgba(96, 165, 250, 0.16);
+		box-shadow: 0 35px 90px rgba(0, 0, 0, 0.28);
+	}
+
+	.visual-header {
+		display: flex;
+		gap: 0.7rem;
+		margin-bottom: 1.8rem;
+	}
+
+	.dot {
+		width: 0.95rem;
+		height: 0.95rem;
+		border-radius: 999px;
+		background: linear-gradient(135deg, #38bdf8, #6366f1);
+		box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+	}
+
+	.visual-body h2 {
+		margin: 0;
+		font-size: 1.7rem;
+		color: #eef2ff;
+	}
+
+	.visual-body p {
+		margin: 1rem 0 1.4rem;
+		color: #cbd5e1;
+	}
+
+	.visual-body ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 0.8rem;
+	}
+
+	.visual-body li {
+		position: relative;
+		padding-left: 1.4rem;
+		color: #94a3b8;
+		line-height: 1.75;
+	}
+
+	.visual-body li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.8rem;
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 999px;
+		background: #38bdf8;
+	}
+
+	.content-section {
+		padding: 2.5rem 0;
+	}
+
+	.section-header {
+		max-width: 760px;
+		margin-bottom: 2rem;
+	}
+
+	.section-label {
+		display: inline-flex;
+		padding: 0.65rem 1rem;
+		border-radius: 999px;
+		background: rgba(59, 130, 246, 0.14);
+		color: #7dd3fc;
+		font-size: 0.82rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		margin-bottom: 1rem;
+	}
+
+	.section-header h2 {
+		font-size: clamp(2rem, 3vw, 2.8rem);
+		margin: 0;
+	}
+
+	.section-header p {
+		margin: 1rem 0 0;
+		color: #c0c9db;
+		max-width: 64ch;
+	}
+
+	.service-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.25rem;
+	}
+
+	.service-card {
+		padding: 1.8rem;
+		border-radius: 28px;
+		background: rgba(10, 20, 50, 0.95);
+		border: 1px solid rgba(96, 165, 250, 0.16);
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+	}
+
+	.service-card h3 {
+		margin: 0;
+		font-size: 1.2rem;
+		color: #eef2ff;
+	}
+
+	.service-card p {
+		margin: 1rem 0 0;
+		color: #c0c9db;
+		line-height: 1.8;
+	}
+
+	.experience-section {
+		display: grid;
+		grid-template-columns: 1.35fr 0.85fr;
+		gap: 1.75rem;
+		align-items: stretch;
+	}
+
+	.experience-panel,
+	.contact-panel {
+		padding: 2.2rem;
+		border-radius: 32px;
+		background: rgba(10, 18, 44, 0.94);
+		border: 1px solid rgba(96, 165, 250, 0.14);
+	}
+
+	.experience-panel h2,
+	.contact-panel h2 {
+		margin: 0 0 1rem;
+		font-size: clamp(2rem, 3vw, 2.5rem);
+	}
+
+	.experience-panel p,
+	.contact-panel p {
+		margin: 0;
+		color: #c0c9db;
+		line-height: 1.8;
+	}
+
+	.experience-panel ul {
+		margin: 1.75rem 0 0;
+		padding: 0;
+		list-style: none;
+		display: grid;
+		gap: 1rem;
+	}
+
+	.experience-panel li {
+		position: relative;
+		padding-left: 1.5rem;
+		color: #cbd5e1;
+		line-height: 1.8;
+	}
+
+	.experience-panel li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.8rem;
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 999px;
+		background: #38bdf8;
+	}
+
+	.experience-stats {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.stat-card {
+		padding: 1.6rem;
+		border-radius: 26px;
+		background: rgba(15, 26, 58, 0.95);
+		border: 1px solid rgba(96, 165, 250, 0.12);
+	}
+
+	.stat-card strong {
+		display: block;
+		font-size: 2rem;
+		color: #eef2ff;
+	}
+
+	.stat-card span {
+		margin-top: 0.7rem;
+		display: block;
+		color: #9ca3af;
+		line-height: 1.8;
+	}
+
+	.contact-panel {
+		display: grid;
+		row-gap: 1.5rem;
+	}
+
+	.contact-panel .button {
+		width: fit-content;
+	}
+
+	@media (max-width: 980px) {
+		.hero-section,
+		.experience-section {
+			grid-template-columns: 1fr;
+		}
+
+		.summary-grid,
+		.service-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 680px) {
+		.page-shell {
+			padding: 2rem 1.2rem;
+		}
+
+		.hero-panel,
+		.visual-card,
+		.experience-panel,
+		.contact-panel,
+		.service-card,
+		.summary-card {
+			border-radius: 24px;
+		}
+	}
+</style>
