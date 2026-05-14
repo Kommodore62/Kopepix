@@ -3,104 +3,275 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<main class="page-shell">
-		<section class="hero-section">
-			<div class="hero-panel">
-				<div class="eyebrow">Kopepix</div>
-				<h1>Videoeditointi & markkinointi, joka herättää huomion.</h1>
-				<p>Tarjoan digimarkkinointiin suunnattuja visuaalisia ratkaisuja ja ammattimaista videoeditointia. Autan brändiäsi näyttämään vakuuttavalta ja viestimään selkeästi.</p>
-				<div class="actions">
-					<a href="#services" class="button primary">Palvelut</a>
-					<a href="#contact" class="button secondary">Ota yhteyttä</a>
-				</div>
-				<div class="summary-grid">
-					<div class="summary-card">
-						<strong>Bränditarinasi</strong>
-						<span>Kerron yrityksesi tarinan tehokkaasti videoiden ja visuaalisuuden kautta.</span>
-					</div>
-					<div class="summary-card">
-						<strong>Konversiot</strong>
-						<span>Tuotan sisältöä, joka sitouttaa yleisöä ja tukee kampanjoiden tuloksia.</span>
-					</div>
-					<div class="summary-card">
-						<strong>Ammattimaisuus</strong>
-						<span>Kannattaa brändiäsi laadukkaalla tuotannolla ja sujuvalla viestinnällä.</span>
-					</div>
-				</div>
+	<div class="cursor-light" aria-hidden="true"></div>
+
+	<header class="masthead">
+		<a href="#top" class="brand">
+			<span class="brand-mark">KK</span>
+			<span class="brand-name">KOPEPIX</span>
+		</a>
+		<nav>
+			<a href="#profile">Profiili</a>
+			<a href="#experience">Kokemus</a>
+			<a href="#skills">Osaaminen</a>
+			<a href="#work">Työt</a>
+			<a href="#contact" class="nav-cta">Ota yhteyttä</a>
+		</nav>
+	</header>
+
+	<main id="top">
+		<!-- ========== HERO ========== -->
+		<section class="hero">
+			<div class="hero-bg" aria-hidden="true">
+				<div class="hero-halo"></div>
+				<div class="hero-grid"></div>
 			</div>
 
-			<div class="hero-visual">
-				<div class="visual-card">
-					<div class="visual-header">
-						<span class="dot"></span>
-						<span class="dot"></span>
-						<span class="dot"></span>
+			<div class="hero-stack" data-parallax-host>
+				<div class="hero-layer hero-layer--back" aria-hidden="true" data-depth="0">
+					<span class="hero-line hero-line--top">KONSTA KIVIOJA</span>
+					<span class="hero-line hero-line--bottom">PORTFOLIO</span>
+				</div>
+
+				<div class="hero-layer hero-layer--photo" aria-hidden="true" data-depth="1.2">
+					<img src="/hero-cutout.png" onerror="this.src='/hero.jpg'; this.classList.add('hero-photo-fallback');" alt="" />
+				</div>
+
+				<h1 class="hero-layer hero-layer--front" aria-label="Konsta Kivioja Portfolio" data-depth="0">
+					<span class="hero-line hero-line--top">KONSTA KIVIOJA</span>
+					<span class="hero-line hero-line--bottom">PORTFOLIO</span>
+				</h1>
+			</div>
+
+			<div class="hero-meta">
+				<span class="meta-right">Markkinointi · Visuaalinen tuotanto · Kopepix</span>
+			</div>
+
+			<div class="hero-scroll-cue" aria-hidden="true">
+				<span>Selaa</span>
+				<svg width="14" height="22" viewBox="0 0 14 22" fill="none">
+					<rect x="0.5" y="0.5" width="13" height="21" rx="6.5" stroke="currentColor"></rect>
+					<circle cx="7" cy="7" r="2" fill="currentColor"></circle>
+				</svg>
+			</div>
+		</section>
+
+		<!-- ========== STANDFIRST / MANIFESTO ========== -->
+		<section class="band band--standfirst">
+			<p class="standfirst" data-reveal>
+				<span class="word">Rakennan</span> <span class="word">visuaalisesti</span>
+				<span class="word">vahvan</span> <span class="word">markkinointi&shy;kokemuksen,</span>
+				<span class="word">joka</span> <span class="word">yhdistää</span>
+				<span class="word">videon,</span> <span class="word">brändin</span>
+				<span class="word">ja</span> <span class="word">digitaalisen</span>
+				<span class="word">tarinankerronnan.</span>
+			</p>
+			<div class="standfirst-actions">
+				<a href="#work" class="button primary">Katso työt</a>
+				<a href="#contact" class="button ghost">Ota yhteyttä</a>
+			</div>
+		</section>
+
+		<!-- ========== 01 — PROFIILI ========== -->
+		<section id="profile" class="band band--split" data-section="01" data-section-name="Profiili">
+			<header class="band-head" data-reveal>
+				<span class="band-num">01 / Profiili</span>
+				<h2 class="display">Markkinointi&shy;päällikkö</h2>
+			</header>
+			<div class="band-body">
+				<p class="lead" data-reveal>
+					Moniosaaja, joka näkee visuaalisuuden ja myynnin samana koneena. Olen johtanut
+					kasvuyrityksen markkinointia menestyksekkäästi vähillä resursseilla — tuloksia
+					tehdään suunnitelmalla, ei budjetilla.
+				</p>
+				<p class="prose" data-reveal>
+					Runsaasti kokemusta yhteistyöstä myyntitiimin kanssa tavoitteiden saavuttamiseksi.
+					Pätevä laatimaan markkinointisuunnitelmia, jotka vastaavat yrityksen strategiaa.
+					Uusien asioiden opettelu enemmän innostaa kuin lannistaa minua.
+				</p>
+				<dl class="pillars" data-reveal>
+					<div class="pillar">
+						<dt><span class="pillar-num">01</span> Strategia</dt>
+						<dd>Ymmärrän tavoitteesi ja sparraan sisältöä, joka toimii.</dd>
 					</div>
-					<div class="visual-body">
-						<h2>Seuraava taso visuaaliselle markkinoinnille</h2>
-						<p>Kuvittele selkeä alusta, jossa viestisi näyttää vaikuttavalta, luotettavalta ja helposti lähestyttävältä.</p>
-						<ul>
-							<li>Tehokas videoeditointi</li>
-							<li>Kohdennettu sisältömarkkinointi</li>
-							<li>Moderni visuaalinen ilme</li>
-						</ul>
+					<div class="pillar">
+						<dt><span class="pillar-num">02</span> Visuaalisuus</dt>
+						<dd>Laadukas jälki tekee brändistäsi tunnistettavan.</dd>
 					</div>
+					<div class="pillar">
+						<dt><span class="pillar-num">03</span> Tulos</dt>
+						<dd>Julkaisut on tehty vaikuttaviksi ja konvertoiviksi.</dd>
+					</div>
+				</dl>
+			</div>
+		</section>
+
+		<!-- ========== 02 — KOKEMUS & KOULUTUS ========== -->
+		<section id="experience" class="band band--split" data-section="02" data-section-name="Kokemus">
+			<header class="band-head" data-reveal>
+				<span class="band-num">02 / Kokemus</span>
+				<h2 class="display">Työpolku<br />ja koulutus</h2>
+			</header>
+			<div class="band-body two-col">
+				<div class="col" data-reveal>
+					<span class="col-label">Työkokemus</span>
+					<ol class="entries">
+						<li>
+							<span class="entry-role">Markkinointipäällikkö</span>
+							<span class="entry-org">Anfra Oy</span>
+						</li>
+						<li>
+							<span class="entry-role">Varastotyöntekijä</span>
+							<span class="entry-org">Pro Nutrition Finland Oy</span>
+						</li>
+						<li>
+							<span class="entry-role">Myyjä</span>
+							<span class="entry-org">Lämpöykkönen Oy</span>
+						</li>
+						<li>
+							<span class="entry-role">Jakaja</span>
+							<span class="entry-org">Kaleva</span>
+						</li>
+						<li>
+							<span class="entry-role">Hormisaneeraaja · kenttämyyjä</span>
+							<span class="entry-org">Fixi Oy</span>
+						</li>
+						<li>
+							<span class="entry-role">Puhelinbuukkari</span>
+							<span class="entry-org">Pisaron Oy</span>
+						</li>
+					</ol>
+				</div>
+				<div class="col" data-reveal>
+					<span class="col-label">Koulutus</span>
+					<ol class="entries">
+						<li>
+							<span class="entry-role">Digimarkkinoinnin perusteet</span>
+							<span class="entry-org">Google Digital Garage · 2022</span>
+						</li>
+						<li>
+							<span class="entry-role">Digital Excellence Academy</span>
+							<span class="entry-org">Saranen Consulting · 2022</span>
+						</li>
+						<li>
+							<span class="entry-role">Ylioppilas</span>
+							<span class="entry-org">Haukiputaan lukio · 2015</span>
+						</li>
+						<li>
+							<span class="entry-role">Liikunta- ja tutor-koulutus</span>
+							<span class="entry-org">Haukiputaan lukio</span>
+						</li>
+					</ol>
 				</div>
 			</div>
 		</section>
 
-		<section id="services" class="content-section services-section">
-			<div class="section-header">
-				<span class="section-label">Palvelut</span>
-				<h2>Skaalautuvat palvelut markkinointiisi</h2>
-				<p>Tuotan sisältöä, joka toimii niin somessa, verkkosivuilla kuin yritysvideoissakin. Jokainen kokonaisuus suunnitellaan kohdeyleisön mukaan.</p>
-			</div>
-
-			<div class="service-grid">
-				<article class="service-card">
-					<h3>Videoeditointi</h3>
-					<p>Leikkaus, värimäärittely, äänisuunnittelu ja julkaisuvalmiit videot eri kanaviin. Autan sinua luomaan tarinan, joka jää mieleen.</p>
-				</article>
-				<article class="service-card">
-					<h3>Markkinointisisältö</h3>
-					<p>Julkaisukalenterit, somekampanjat ja visuaaliset konseptit, jotka kasvattavat näkyvyyttä sekä sitouttavat yleisöä.</p>
-				</article>
-				<article class="service-card">
-					<h3>Brändisuunnittelu</h3>
-					<p>Yhtenäinen ilme, myyntiviestit ja visuaalinen linja, joka tukee brändisi asemaa ja luotettavuutta.</p>
-				</article>
-			</div>
-		</section>
-
-		<section class="content-section experience-section">
-			<div class="experience-panel">
-				<h2>Erityisosaamiseni</h2>
-				<p>Videoeditointini on suunnattu yrityksille, vaikuttajille ja markkinointitiimeille, jotka haluavat vaikuttavaa sisältöä ilman kompromisseja.</p>
-				<ul>
-					<li>Leikkaus ja rytmitys</li>
-					<li>Värikorjaus ja visuaaliset tehosteet</li>
-					<li>Äänen jälkikäsittely ja äänimaisema</li>
-					<li>Branding ja tarinankerronta</li>
-				</ul>
-			</div>
-			<div class="experience-stats">
-				<div class="stat-card">
-					<strong>8+</strong>
-					<span>vuoden kokemus video- ja markkinointiprojekteissa</span>
+		<!-- ========== 03 — OSAAMINEN ========== -->
+		<section id="skills" class="band band--split" data-section="03" data-section-name="Osaaminen">
+			<header class="band-head" data-reveal>
+				<span class="band-num">03 / Osaaminen</span>
+				<h2 class="display">Mitä osaan<br />tehdä sinulle</h2>
+			</header>
+			<div class="band-body two-col">
+				<div class="col" data-reveal>
+					<span class="col-label">Markkinointi</span>
+					<ul class="chips">
+						<li>Markkinoinnin johtaminen</li>
+						<li>Verkkosivujen teko ja päivitys</li>
+						<li>Sosiaalinen media</li>
+						<li>Somemainonta</li>
+						<li>Video- ja kuvaeditointi</li>
+						<li>Graafinen suunnittelu</li>
+						<li>Tekoälyn käyttö markkinoinnissa</li>
+						<li>Ja paljon muuta</li>
+					</ul>
 				</div>
-				<div class="stat-card">
-					<strong>120+</strong>
-					<span>valmista videota ja markkinointikampanjaa</span>
+				<div class="col" data-reveal>
+					<span class="col-label">Ohjelmistot</span>
+					<ul class="chips">
+						<li>Photoshop</li>
+						<li>Lightroom</li>
+						<li>DaVinci Resolve</li>
+						<li>ChatGPT &amp; Gemini</li>
+						<li>Midjourney</li>
+					</ul>
 				</div>
 			</div>
 		</section>
 
-		<section id="contact" class="content-section contact-section">
-			<div class="contact-panel">
-				<h2>Ota yhteyttä ja aloitetaan yhteistyö</h2>
-				<p>Jos haluat lisätietoja videoeditointipalveluistani tai projekti-ideoiden toteutuksesta, lähetä viesti ja minä autan sinua rakentamaan vahvan digitaalisen läsnäolon.</p>
-				<a class="button primary" href="mailto:info@kopepix.fi">Lähetä tarjouspyyntö</a>
+		<!-- ========== 04 — VALITUT TYÖT ========== -->
+		<section id="work" class="band band--work" data-section="04" data-section-name="Työt">
+			<header class="band-head" data-reveal>
+				<span class="band-num">04 / Valitut työt</span>
+				<h2 class="display">Tuoreimmat<br />projektit</h2>
+			</header>
+			<div class="work-list">
+				<a class="work" href="https://youtu.be/rQkSkqKakRA?feature=shared" target="_blank" rel="noopener" data-reveal>
+					<span class="work-index">N° 01</span>
+					<div class="work-meta">
+						<span class="work-tag">Video</span>
+						<h3>Suunnittelu ja toteutus työntekijöiden uratarinoille</h3>
+						<p>Tuotantoa, käsikirjoitus ja editointi alusta loppuun.</p>
+					</div>
+					<span class="work-cta">
+						Katso video
+						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+							<path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+						</svg>
+					</span>
+				</a>
+				<a class="work" href="https://anfra-aidat.fi/" target="_blank" rel="noopener" data-reveal>
+					<span class="work-index">N° 02</span>
+					<div class="work-meta">
+						<span class="work-tag">Brändi</span>
+						<h3>Anfra-Aitojen brändi ja verkkosivut</h3>
+						<p>Anfra-Aitojen brändin, verkkosivujen ja mainonnan rakentaminen alusta loppuun.</p>
+					</div>
+					<span class="work-cta">
+						Avaa sivu
+						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+							<path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+						</svg>
+					</span>
+				</a>
+				<div class="work" data-reveal>
+					<span class="work-index">N° 03</span>
+					<div class="work-meta">
+						<span class="work-tag">AI · Kuvapankki</span>
+						<h3>Brändikuvapankki tekoälyllä</h3>
+						<p>Brändikuvapankin luonti Midjourneyn avulla — tunnistettava jälki ilman kuvauspäivän kuluja.</p>
+					</div>
+					<span class="work-cta inert">Case study tulossa</span>
+				</div>
 			</div>
+		</section>
+
+		<!-- ========== 05 — YHTEYS ========== -->
+		<section id="contact" class="band band--contact" data-section="05" data-section-name="Yhteys">
+			<div class="contact-stage" data-reveal>
+				<span class="band-num">05 / Yhteys</span>
+				<h2 class="display contact-display">Tehdäänkö<br />yhdessä?</h2>
+				<p class="contact-lead">
+					Olipa kyse brändistä, verkkosivuista tai videosta — ole rohkeasti yhteydessä.
+				</p>
+				<div class="contact-grid">
+					<a class="contact-card" href="mailto:konstakivioja@gmail.com">
+						<span class="contact-label">Email</span>
+						<strong>konstakivioja@gmail.com</strong>
+						<span class="contact-arrow" aria-hidden="true">→</span>
+					</a>
+					<a class="contact-card" href="tel:+358401409823">
+						<span class="contact-label">Puhelin</span>
+						<strong>040 140 9823</strong>
+						<span class="contact-arrow" aria-hidden="true">→</span>
+					</a>
+				</div>
+			</div>
+
+			<footer class="colophon">
+				<span>© 2026 Konsta Kivioja · Kopepix</span>
+				<a href="#top">Takaisin ylös ↑</a>
+			</footer>
 		</section>
 	</main>
 </Layout>
@@ -108,372 +279,1146 @@ import Layout from '../layouts/Layout.astro';
 <style>
 	:root {
 		color-scheme: dark;
-		font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-		background: #050b21;
-		color: #eef2ff;
+		--bg-0: #02050f;
+		--bg-1: #04091f;
+		--bg-2: #07112a;
+		--ink-hi: #f4f6fb;
+		--ink-mid: #c4cee0;
+		--ink-low: #8895ad;
+		--ink-faint: #4a546b;
+		--accent: #6cd2ff;
+		--rule: rgba(255, 255, 255, 0.08);
+		--font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
+		--font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+	}
+
+	html {
+		scroll-behavior: smooth;
 	}
 
 	html,
 	body {
 		margin: 0;
+		padding: 0;
 		min-height: 100%;
-		background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.16), transparent 24%),
-			radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.14), transparent 24%),
-			linear-gradient(180deg, #04091f 0%, #05102d 100%);
+		font-family: var(--font-sans);
+		background: var(--bg-1);
+		color: var(--ink-hi);
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
 	}
 
-	.page-shell {
-		display: grid;
-		row-gap: 4rem;
-		padding: 3rem clamp(1.5rem, 4vw, 4rem);
+	body {
+		overflow-x: clip;
 	}
 
-	.hero-section {
-		display: grid;
-		grid-template-columns: 1.25fr 0.95fr;
-		gap: 2rem;
+	::selection {
+		background: var(--accent);
+		color: var(--bg-0);
+	}
+
+	main {
+		position: relative;
+		z-index: 1;
+	}
+
+	/* ========== CURSOR LIGHT ========== */
+	.cursor-light {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 560px;
+		height: 560px;
+		margin: -280px 0 0 -280px;
+		background: radial-gradient(
+			circle,
+			rgba(125, 211, 252, 0.18) 0%,
+			rgba(56, 189, 248, 0.08) 30%,
+			transparent 70%
+		);
+		pointer-events: none;
+		z-index: 60;
+		mix-blend-mode: screen;
+		transition: opacity 200ms ease-out;
+		will-change: transform;
+		opacity: 0;
+	}
+
+	.cursor-light.active {
+		opacity: 1;
+	}
+
+	/* ========== MASTHEAD ========== */
+	.masthead {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 50;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1.2rem clamp(1.2rem, 4vw, 3rem);
+		background: linear-gradient(180deg, rgba(2, 5, 15, 0.7), rgba(2, 5, 15, 0.1));
+		backdrop-filter: blur(18px);
+		-webkit-backdrop-filter: blur(18px);
+	}
+
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 0.7rem;
+		color: var(--ink-hi);
+		text-decoration: none;
+	}
+
+	.brand-mark {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: 30px;
+		height: 30px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		border-radius: 50%;
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		font-weight: 500;
+	}
+
+	.brand-name {
+		font-size: 0.92rem;
+		font-weight: 700;
+		letter-spacing: 0.18em;
+	}
+
+	.masthead nav {
+		display: flex;
+		gap: 1.6rem;
 		align-items: center;
 	}
 
-	.hero-panel {
-		padding: 2.4rem;
-		border-radius: 32px;
-		background: rgba(12, 22, 55, 0.94);
-		border: 1px solid rgba(96, 165, 250, 0.14);
-		box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+	.masthead nav a {
+		color: var(--ink-mid);
+		text-decoration: none;
+		font-size: 0.84rem;
+		font-weight: 500;
+		letter-spacing: 0.04em;
+		transition: color 180ms ease;
 	}
 
-	.eyebrow {
+	.masthead nav a:hover {
+		color: var(--accent);
+	}
+
+	.nav-cta {
+		padding: 0.55rem 1rem;
+		border: 1px solid rgba(108, 210, 255, 0.4);
+		border-radius: 999px;
+		color: var(--accent) !important;
+	}
+
+	.nav-cta:hover {
+		background: rgba(108, 210, 255, 0.12);
+	}
+
+	@media (max-width: 760px) {
+		.masthead nav a:not(.nav-cta) {
+			display: none;
+		}
+	}
+
+	/* ========== SCROLL TAG (left side) ========== */
+	.scroll-tag {
+		position: fixed;
+		left: clamp(0.8rem, 1.8vw, 1.8rem);
+		top: 50%;
+		transform: translateY(-50%) rotate(-90deg);
+		transform-origin: left center;
+		z-index: 40;
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.32em;
+		text-transform: uppercase;
+		color: var(--ink-low);
+		pointer-events: none;
+	}
+
+	.tag-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--accent);
+		box-shadow: 0 0 12px var(--accent);
+	}
+
+	@media (max-width: 1000px) {
+		.scroll-tag {
+			display: none;
+		}
+	}
+
+	/* ========== HERO ========== */
+	.hero {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: clamp(4rem, 5.5vw, 5rem) clamp(1.5rem, 4vw, 3rem) 4rem;
+		overflow: hidden;
+		isolation: isolate;
+		--mx: 0;
+		--my: 0;
+	}
+
+	/* Backdrop: halo glow + faint grid */
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		pointer-events: none;
+	}
+
+	.hero-halo {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 90vmin;
+		height: 90vmin;
+		transform: translate(-50%, -50%) translate3d(calc(var(--mx) * 18px), calc(var(--my) * 18px), 0);
+		background:
+			radial-gradient(circle at 50% 50%, rgba(108, 210, 255, 0.16) 0%, rgba(108, 210, 255, 0.06) 30%, transparent 65%),
+			radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 70%);
+		filter: blur(40px);
+		opacity: 0.95;
+		transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+	}
+
+	.hero-grid {
+		position: absolute;
+		inset: -2px;
+		background-image:
+			linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+		background-size: clamp(40px, 5vw, 64px) clamp(40px, 5vw, 64px);
+		mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.7) 60%, #000 100%);
+		-webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.7) 60%, #000 100%);
+		opacity: 0.6;
+	}
+
+	.hero-stack {
+		position: relative;
+		width: 100%;
+		max-width: 1400px;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		justify-items: center;
+		align-items: end;
+	}
+
+	.hero-layer {
+		grid-column: 1;
+		grid-row: 1;
+		width: 100%;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.05em;
+		text-align: center;
+		font-weight: 900;
+		letter-spacing: -0.045em;
+		line-height: 0.88;
+		transform: translate3d(calc(var(--mx) * var(--depth, 0) * 14px), calc(var(--my) * var(--depth, 0) * 14px), 0);
+		transition: transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1);
+	}
+
+	.hero-line {
+		display: block;
+		font-size: clamp(2.6rem, 11vw, 11rem);
+	}
+
+	.hero-line--top {
+		letter-spacing: -0.04em;
+	}
+
+	.hero-line--bottom {
+		letter-spacing: -0.06em;
+		font-size: clamp(3.6rem, 16vw, 16rem);
+		line-height: 0.82;
+	}
+
+	/* Layer 1: solid white text behind */
+	.hero-layer--back .hero-line {
+		color: #ffffff;
+	}
+
+	/* Layer 2: person photo — bottom-aligned to grid cell so its bottom lines up with PORTFOLIO baseline */
+	.hero-layer--photo {
+		pointer-events: none;
+		align-items: center;
+		justify-content: flex-end;
+		height: auto;
+	}
+
+	.hero-layer--photo img {
+		display: block;
+		width: auto;
+		height: clamp(780px, 118vh, 1240px);
+		max-width: 96vw;
+		object-fit: contain;
+		object-position: bottom;
+		filter:
+			grayscale(0.9)
+			contrast(1.35)
+			brightness(0.62)
+			drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55));
+	}
+
+	/* When fallback JPG used: fade edges via radial mask so white bg disappears */
+	.hero-layer--photo img.hero-photo-fallback {
+		filter: grayscale(0.55) contrast(1.08) brightness(0.92) saturate(0.6);
+		-webkit-mask-image: radial-gradient(
+			ellipse 52% 70% at 50% 42%,
+			#000 24%,
+			#000 52%,
+			rgba(0, 0, 0, 0.6) 72%,
+			transparent 95%
+		);
+		mask-image: radial-gradient(
+			ellipse 52% 70% at 50% 42%,
+			#000 24%,
+			#000 52%,
+			rgba(0, 0, 0, 0.6) 72%,
+			transparent 95%
+		);
+	}
+
+	/* Layer 3: outline-only text on top — appears as outline where it overlaps person */
+	.hero-layer--front .hero-line {
+		color: transparent;
+		-webkit-text-stroke: 2.5px #ffffff;
+		text-stroke: 2.5px #ffffff;
+	}
+
+	@media (max-width: 720px) {
+		.hero-layer--front .hero-line {
+			-webkit-text-stroke-width: 1.2px;
+		}
+	}
+
+	.hero-meta {
+		position: absolute;
+		bottom: 1.6rem;
+		left: clamp(1.5rem, 4vw, 3rem);
+		right: clamp(1.5rem, 4vw, 3rem);
+		display: flex;
+		justify-content: space-between;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--ink-low);
+		pointer-events: none;
+	}
+
+	.meta-left {
 		display: inline-flex;
 		align-items: center;
-		padding: 0.7rem 1rem;
-		border-radius: 999px;
-		font-size: 0.78rem;
-		font-weight: 700;
-		letter-spacing: 0.16em;
+		gap: 0.55rem;
+	}
+
+	.meta-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--accent);
+		box-shadow: 0 0 0 0 rgba(108, 210, 255, 0.6);
+		animation: meta-pulse 2.4s ease-out infinite;
+	}
+
+	@keyframes meta-pulse {
+		0% { box-shadow: 0 0 0 0 rgba(108, 210, 255, 0.55); }
+		70% { box-shadow: 0 0 0 12px rgba(108, 210, 255, 0); }
+		100% { box-shadow: 0 0 0 0 rgba(108, 210, 255, 0); }
+	}
+
+	/* Hero entrance animation */
+	@keyframes hero-rise {
+		from {
+			opacity: 0;
+			transform: translateY(28px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.hero-stack,
+	.hero-meta,
+	.hero-scroll-cue {
+		animation: hero-rise 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+	}
+
+	.hero-meta {
+		animation-delay: 220ms;
+	}
+
+	.hero-scroll-cue {
+		animation-delay: 380ms;
+	}
+
+	.hero-scroll-cue {
+		position: absolute;
+		bottom: 4.5rem;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		letter-spacing: 0.32em;
 		text-transform: uppercase;
-		background: rgba(59, 130, 246, 0.14);
-		color: #7dd3fc;
-		margin-bottom: 1.6rem;
+		color: var(--ink-low);
 	}
 
-	h1 {
-		font-size: clamp(3.3rem, 5vw, 5.1rem);
-		line-height: 0.96;
+	.hero-scroll-cue svg {
+		opacity: 0.55;
+		animation: scroll-bounce 2s ease-in-out infinite;
+	}
+
+	@keyframes scroll-bounce {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(4px); }
+	}
+
+	/* ========== BANDS (sections) ========== */
+	/* One smooth pipe — sections flow into each other, no visible dividers */
+	.band {
+		position: relative;
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: clamp(4rem, 9vw, 7.5rem) clamp(1.5rem, 4vw, 3rem) clamp(3rem, 6vw, 5rem);
+	}
+
+	.band + .band {
+		padding-top: 0;
+	}
+
+	.band--standfirst {
+		text-align: center;
+		padding-top: clamp(2rem, 5vw, 4rem);
+		padding-bottom: clamp(6rem, 11vw, 10rem);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2.5rem;
+	}
+
+	.standfirst {
+		max-width: 22ch;
 		margin: 0;
-		max-width: 10ch;
+		font-size: clamp(2rem, 4.2vw, 3.8rem);
+		font-weight: 600;
+		line-height: 1.15;
+		letter-spacing: -0.025em;
+		color: var(--ink-hi);
 	}
 
-	.hero-panel p {
-		font-size: 1.05rem;
-		line-height: 1.85;
-		color: #cbd5e1;
-		margin-top: 1.6rem;
-		max-width: 72ch;
+	.standfirst .word {
+		display: inline-block;
+		opacity: 0;
+		transform: translateY(20px);
+		transition: opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1), transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
 	}
 
-	.actions {
+	.standfirst.in-view .word {
+		opacity: 1;
+		transform: none;
+	}
+
+	.standfirst.in-view .word {
+		transition-delay: calc(var(--i, 0) * 50ms);
+	}
+
+	.standfirst-actions {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1rem;
-		margin-top: 2rem;
+		gap: 0.85rem;
+		justify-content: center;
 	}
 
+	/* Shared band-head — no hard divider, sits soft inside the flowing pipe */
+	.band-head {
+		display: block;
+		margin-bottom: 2.8rem;
+	}
+
+	/* Numerointi piilossa — sivu on yksi kokonaisuus */
+	.band-num {
+		display: none;
+	}
+
+	.display {
+		margin: 0;
+		font-size: clamp(2.6rem, 6vw, 5.5rem);
+		font-weight: 800;
+		line-height: 0.95;
+		letter-spacing: -0.035em;
+		color: var(--ink-hi);
+		cursor: default;
+	}
+
+	/* Interactive headings: each letter reacts to cursor proximity */
+	.display .char {
+		display: inline-block;
+		transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1), color 320ms ease, text-shadow 320ms ease;
+		will-change: transform;
+	}
+
+	.display .char.space {
+		width: 0.28em;
+	}
+
+	.display:hover .char {
+		color: var(--ink-hi);
+	}
+
+	.display .char.hot {
+		color: var(--accent);
+		text-shadow: 0 0 28px rgba(108, 210, 255, 0.5);
+	}
+
+	@media (max-width: 720px) {
+		.band-head {
+			margin-bottom: 2rem;
+		}
+	}
+
+	.lead {
+		font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+		line-height: 1.5;
+		font-weight: 500;
+		color: var(--ink-hi);
+		max-width: 56ch;
+		margin: 0 0 1.5rem;
+	}
+
+	.prose {
+		font-size: 1.05rem;
+		line-height: 1.85;
+		color: var(--ink-mid);
+		max-width: 64ch;
+		margin: 0 0 3rem;
+	}
+
+	/* ========== BUTTONS ========== */
 	.button {
 		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		padding: 1rem 1.75rem;
+		gap: 0.5rem;
+		padding: 0.95rem 1.6rem;
 		border-radius: 999px;
-		font-weight: 700;
+		font-weight: 600;
+		font-size: 0.94rem;
+		letter-spacing: 0.04em;
 		text-decoration: none;
-		transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+		transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+		cursor: pointer;
+		border: none;
+		font-family: var(--font-sans);
 	}
 
 	.button.primary {
-		background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
-		color: #fff;
-		box-shadow: 0 20px 45px rgba(56, 189, 248, 0.22);
+		background: var(--accent);
+		color: var(--bg-0);
+		box-shadow: 0 16px 48px rgba(108, 210, 255, 0.3);
 	}
 
 	.button.primary:hover {
 		transform: translateY(-2px);
+		box-shadow: 0 18px 54px rgba(108, 210, 255, 0.45);
 	}
 
-	.button.secondary {
-		background: rgba(148, 163, 184, 0.14);
-		color: #e2e8f0;
-		border: 1px solid rgba(148, 163, 184, 0.24);
+	.button.ghost {
+		background: transparent;
+		color: var(--ink-hi);
+		border: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
-	.button.secondary:hover {
-		background: rgba(148, 163, 184, 0.22);
+	.button.ghost:hover {
+		background: rgba(255, 255, 255, 0.06);
+		border-color: rgba(255, 255, 255, 0.4);
 	}
 
-	.summary-grid {
+	/* ========== PROFILE: PILLARS ========== */
+	.pillars {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 1rem;
-		margin-top: 2.25rem;
+		margin: 2rem 0 0;
 	}
 
-	.summary-card {
-		padding: 1.35rem 1.3rem;
-		border-radius: 24px;
-		background: rgba(15, 23, 64, 0.9);
-		border: 1px solid rgba(96, 165, 250, 0.14);
+	.pillar {
+		padding: 1.6rem 1.6rem 1.8rem;
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid var(--rule);
+		transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
 	}
 
-	.summary-card strong {
-		display: block;
-		font-size: 1.05rem;
-		margin-bottom: 0.6rem;
-		color: #eef2ff;
+	.pillar:hover {
+		background: rgba(108, 210, 255, 0.05);
+		border-color: rgba(108, 210, 255, 0.25);
+		transform: translateY(-3px);
 	}
 
-	.summary-card span {
-		color: #94a3b8;
-		line-height: 1.8;
-		font-size: 0.95rem;
-	}
-
-	.hero-visual {
-		display: flex;
-		justify-content: center;
-	}
-
-	.visual-card {
-		width: 100%;
-		max-width: 480px;
-		padding: 2rem;
-		border-radius: 32px;
-		background: linear-gradient(180deg, rgba(8, 18, 57, 0.98), rgba(16, 30, 74, 0.9));
-		border: 1px solid rgba(96, 165, 250, 0.16);
-		box-shadow: 0 35px 90px rgba(0, 0, 0, 0.28);
-	}
-
-	.visual-header {
-		display: flex;
-		gap: 0.7rem;
-		margin-bottom: 1.8rem;
-	}
-
-	.dot {
-		width: 0.95rem;
-		height: 0.95rem;
-		border-radius: 999px;
-		background: linear-gradient(135deg, #38bdf8, #6366f1);
-		box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
-	}
-
-	.visual-body h2 {
-		margin: 0;
-		font-size: 1.7rem;
-		color: #eef2ff;
-	}
-
-	.visual-body p {
-		margin: 1rem 0 1.4rem;
-		color: #cbd5e1;
-	}
-
-	.visual-body ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: grid;
-		gap: 0.8rem;
-	}
-
-	.visual-body li {
-		position: relative;
-		padding-left: 1.4rem;
-		color: #94a3b8;
-		line-height: 1.75;
-	}
-
-	.visual-body li::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 0.8rem;
-		width: 0.55rem;
-		height: 0.55rem;
-		border-radius: 999px;
-		background: #38bdf8;
-	}
-
-	.content-section {
-		padding: 2.5rem 0;
-	}
-
-	.section-header {
-		max-width: 760px;
-		margin-bottom: 2rem;
-	}
-
-	.section-label {
-		display: inline-flex;
-		padding: 0.65rem 1rem;
-		border-radius: 999px;
-		background: rgba(59, 130, 246, 0.14);
-		color: #7dd3fc;
-		font-size: 0.82rem;
+	.pillar dt {
+		font-size: 1.15rem;
 		font-weight: 700;
-		letter-spacing: 0.14em;
+		color: var(--ink-hi);
+		margin-bottom: 0.6rem;
+	}
+
+	.pillar dd {
+		margin: 0;
+		color: var(--ink-mid);
+		font-size: 0.95rem;
+		line-height: 1.6;
+	}
+
+	.pillar-num {
+		display: inline-block;
+		font-family: var(--font-mono);
+		font-size: 0.68rem;
+		color: var(--accent);
+		letter-spacing: 0.18em;
+		padding-right: 0.5rem;
+		opacity: 0.85;
+		vertical-align: 0.18em;
+	}
+
+	@media (max-width: 880px) {
+		.pillars {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* ========== TWO COL (kokemus + skills) ========== */
+	.two-col {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: clamp(2rem, 5vw, 5rem);
+	}
+
+	.col-label {
+		display: block;
+		font-family: var(--font-mono);
+		font-size: 0.74rem;
+		letter-spacing: 0.22em;
 		text-transform: uppercase;
-		margin-bottom: 1rem;
+		color: var(--accent);
+		margin-bottom: 1.5rem;
+		padding-bottom: 0.9rem;
+		border-bottom: 1px solid var(--rule);
 	}
 
-	.section-header h2 {
-		font-size: clamp(2rem, 3vw, 2.8rem);
-		margin: 0;
-	}
-
-	.section-header p {
-		margin: 1rem 0 0;
-		color: #c0c9db;
-		max-width: 64ch;
-	}
-
-	.service-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1.25rem;
-	}
-
-	.service-card {
-		padding: 1.8rem;
-		border-radius: 28px;
-		background: rgba(10, 20, 50, 0.95);
-		border: 1px solid rgba(96, 165, 250, 0.16);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-	}
-
-	.service-card h3 {
-		margin: 0;
-		font-size: 1.2rem;
-		color: #eef2ff;
-	}
-
-	.service-card p {
-		margin: 1rem 0 0;
-		color: #c0c9db;
-		line-height: 1.8;
-	}
-
-	.experience-section {
-		display: grid;
-		grid-template-columns: 1.35fr 0.85fr;
-		gap: 1.75rem;
-		align-items: stretch;
-	}
-
-	.experience-panel,
-	.contact-panel {
-		padding: 2.2rem;
-		border-radius: 32px;
-		background: rgba(10, 18, 44, 0.94);
-		border: 1px solid rgba(96, 165, 250, 0.14);
-	}
-
-	.experience-panel h2,
-	.contact-panel h2 {
-		margin: 0 0 1rem;
-		font-size: clamp(2rem, 3vw, 2.5rem);
-	}
-
-	.experience-panel p,
-	.contact-panel p {
-		margin: 0;
-		color: #c0c9db;
-		line-height: 1.8;
-	}
-
-	.experience-panel ul {
-		margin: 1.75rem 0 0;
-		padding: 0;
+	.entries {
 		list-style: none;
+		padding: 0;
+		margin: 0;
+		counter-reset: entry;
+	}
+
+	.entries li {
+		counter-increment: entry;
 		display: grid;
-		gap: 1rem;
+		grid-template-columns: 2.5rem 1fr;
+		align-items: baseline;
+		padding: 1.1rem 0;
+		border-bottom: 1px dashed var(--rule);
+		transition: padding-left 220ms ease, background 220ms ease;
 	}
 
-	.experience-panel li {
-		position: relative;
-		padding-left: 1.5rem;
-		color: #cbd5e1;
-		line-height: 1.8;
+	.entries li::before {
+		content: counter(entry, decimal-leading-zero);
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		color: var(--ink-faint);
 	}
 
-	.experience-panel li::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 0.8rem;
-		width: 0.55rem;
-		height: 0.55rem;
+	.entries li:hover {
+		padding-left: 0.6rem;
+	}
+
+	.entry-role {
+		display: block;
+		color: var(--ink-hi);
+		font-size: 1.02rem;
+		font-weight: 500;
+	}
+
+	.entry-org {
+		display: block;
+		color: var(--ink-low);
+		font-size: 0.88rem;
+		margin-top: 0.2rem;
+	}
+
+	.chips {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.55rem;
+	}
+
+	.chips li {
+		padding: 0.7rem 1rem;
 		border-radius: 999px;
-		background: #38bdf8;
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid var(--rule);
+		color: var(--ink-mid);
+		font-size: 0.9rem;
+		transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
 	}
 
-	.experience-stats {
+	.chips li:hover {
+		background: rgba(108, 210, 255, 0.08);
+		color: var(--ink-hi);
+		border-color: rgba(108, 210, 255, 0.32);
+	}
+
+	@media (max-width: 880px) {
+		.two-col {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* ========== WORK ========== */
+	.work-list {
+		display: flex;
+		flex-direction: column;
+		border-top: 1px solid var(--rule);
+	}
+
+	.work {
 		display: grid;
+		grid-template-columns: minmax(80px, 110px) 1fr auto;
+		gap: clamp(1rem, 3vw, 3rem);
+		align-items: center;
+		padding: clamp(1.8rem, 3.5vw, 2.6rem) 0;
+		border-bottom: 1px solid var(--rule);
+		color: var(--ink-hi);
+		text-decoration: none;
+		transition: padding 240ms ease;
+	}
+
+	a.work:hover {
+		padding-left: clamp(0.4rem, 1vw, 1rem);
+	}
+
+	a.work:hover .work-index,
+	a.work:hover .work-cta {
+		color: var(--accent);
+	}
+
+	.work-index {
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+		color: var(--ink-low);
+		transition: color 240ms ease;
+	}
+
+	.work-meta {
+		min-width: 0;
+	}
+
+	.work-tag {
+		display: inline-block;
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--accent);
+		margin-bottom: 0.8rem;
+		padding: 0.25rem 0.65rem;
+		background: rgba(108, 210, 255, 0.1);
+		border-radius: 999px;
+	}
+
+	.work h3 {
+		margin: 0 0 0.5rem;
+		font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+		font-weight: 700;
+		line-height: 1.15;
+		letter-spacing: -0.015em;
+		color: var(--ink-hi);
+	}
+
+	.work p {
+		margin: 0;
+		color: var(--ink-mid);
+		font-size: 0.98rem;
+		line-height: 1.6;
+		max-width: 58ch;
+	}
+
+	.work-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--ink-low);
+		transition: color 240ms ease, gap 240ms ease;
+	}
+
+	a.work:hover .work-cta {
+		gap: 0.7rem;
+	}
+
+	.work-cta.inert {
+		opacity: 0.5;
+	}
+
+	@media (max-width: 760px) {
+		.work {
+			grid-template-columns: 1fr;
+			gap: 0.6rem;
+			padding: 1.6rem 0;
+		}
+		.work-cta {
+			padding-top: 0.4rem;
+		}
+	}
+
+	/* ========== CONTACT ========== */
+	.band--contact {
+		padding-bottom: 3rem;
+	}
+
+	.contact-stage {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		padding: 2rem 0;
+	}
+
+	.contact-display {
+		margin: 0.8rem 0 0;
+		font-size: clamp(3rem, 9vw, 8rem);
+		font-weight: 800;
+		line-height: 0.95;
+		letter-spacing: -0.045em;
+		color: var(--ink-hi);
+	}
+
+	.contact-lead {
+		margin: 1.5rem 0 3rem;
+		font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+		line-height: 1.55;
+		color: var(--ink-mid);
+		max-width: 50ch;
+	}
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 		gap: 1rem;
+		width: 100%;
+		max-width: 760px;
 	}
 
-	.stat-card {
-		padding: 1.6rem;
-		border-radius: 26px;
-		background: rgba(15, 26, 58, 0.95);
-		border: 1px solid rgba(96, 165, 250, 0.12);
-	}
-
-	.stat-card strong {
-		display: block;
-		font-size: 2rem;
-		color: #eef2ff;
-	}
-
-	.stat-card span {
-		margin-top: 0.7rem;
-		display: block;
-		color: #9ca3af;
-		line-height: 1.8;
-	}
-
-	.contact-panel {
+	.contact-card {
 		display: grid;
-		row-gap: 1.5rem;
+		grid-template-columns: 1fr auto;
+		grid-template-rows: auto auto;
+		padding: 1.75rem 1.85rem;
+		border-radius: 22px;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid var(--rule);
+		color: var(--ink-hi);
+		text-decoration: none;
+		text-align: left;
+		transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
 	}
 
-	.contact-panel .button {
-		width: fit-content;
+	.contact-card:hover {
+		background: rgba(108, 210, 255, 0.05);
+		border-color: rgba(108, 210, 255, 0.3);
+		transform: translateY(-2px);
 	}
 
-	@media (max-width: 980px) {
-		.hero-section,
-		.experience-section {
+	.contact-card:hover .contact-arrow {
+		transform: translate(4px, -4px);
+		color: var(--accent);
+	}
+
+	.contact-label {
+		grid-column: 1;
+		grid-row: 1;
+		font-family: var(--font-mono);
+		font-size: 0.74rem;
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+		color: var(--accent);
+		margin-bottom: 0.5rem;
+	}
+
+	.contact-card strong {
+		grid-column: 1;
+		grid-row: 2;
+		font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+		font-weight: 600;
+		color: var(--ink-hi);
+	}
+
+	.contact-arrow {
+		grid-column: 2;
+		grid-row: 1 / span 2;
+		align-self: center;
+		font-size: 1.4rem;
+		color: var(--ink-low);
+		transition: transform 240ms ease, color 240ms ease;
+	}
+
+	@media (max-width: 720px) {
+		.contact-grid {
 			grid-template-columns: 1fr;
 		}
-
-		.summary-grid,
-		.service-grid {
-			grid-template-columns: 1fr;
-		}
 	}
 
-	@media (max-width: 680px) {
-		.page-shell {
-			padding: 2rem 1.2rem;
-		}
+	/* ========== COLOPHON ========== */
+	.colophon {
+		max-width: 1280px;
+		margin: 5rem auto 0;
+		padding: 2rem clamp(1.5rem, 4vw, 3rem);
+		border-top: 1px solid var(--rule);
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 1rem;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.14em;
+		color: var(--ink-low);
+	}
 
-		.hero-panel,
-		.visual-card,
-		.experience-panel,
-		.contact-panel,
-		.service-card,
-		.summary-card {
-			border-radius: 24px;
+	.colophon a {
+		color: var(--ink-low);
+		text-decoration: none;
+		transition: color 200ms ease;
+	}
+
+	.colophon a:hover {
+		color: var(--accent);
+	}
+
+	/* ========== REVEAL ON SCROLL ========== */
+	[data-reveal] {
+		opacity: 0;
+		transform: translateY(28px);
+		transition: opacity 900ms cubic-bezier(0.2, 0.7, 0.2, 1), transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+	}
+
+	[data-reveal].in-view {
+		opacity: 1;
+		transform: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		[data-reveal],
+		.standfirst .word {
+			opacity: 1;
+			transform: none;
+			transition: none;
+		}
+		.hero-scroll-cue svg {
+			animation: none;
+		}
+		html {
+			scroll-behavior: auto;
 		}
 	}
 </style>
+
+<script type="module">
+	const hover = window.matchMedia('(hover: hover)').matches;
+	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	// ---------- Cursor light ----------
+	const light = document.querySelector('.cursor-light');
+	if (light && hover) {
+		let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+		const move = () => {
+			cx += (tx - cx) * 0.18;
+			cy += (ty - cy) * 0.18;
+			light.style.transform = `translate(${cx}px, ${cy}px)`;
+			raf = requestAnimationFrame(move);
+		};
+		document.addEventListener('pointermove', (e) => {
+			tx = e.clientX;
+			ty = e.clientY;
+			if (!light.classList.contains('active')) light.classList.add('active');
+			if (!raf) raf = requestAnimationFrame(move);
+		});
+		document.addEventListener('pointerleave', () => light.classList.remove('active'));
+	}
+
+	// ---------- Stagger word indices for standfirst reveal ----------
+	document.querySelectorAll('.standfirst .word').forEach((w, i) => {
+		w.style.setProperty('--i', i);
+	});
+
+	// ---------- Reveal on scroll ----------
+	const reveals = document.querySelectorAll('[data-reveal]');
+	if ('IntersectionObserver' in window) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('in-view');
+						io.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
+		);
+		reveals.forEach((el) => io.observe(el));
+	} else {
+		reveals.forEach((el) => el.classList.add('in-view'));
+	}
+
+	// ---------- Hero mouse parallax ----------
+	const hero = document.querySelector('.hero');
+	const parallaxHost = document.querySelector('[data-parallax-host]');
+	const halo = document.querySelector('.hero-halo');
+	if (hero && hover && !reducedMotion) {
+		const depths = Array.from(parallaxHost.querySelectorAll('[data-depth]'));
+		depths.forEach((el) => el.style.setProperty('--depth', el.dataset.depth));
+
+		let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+		const loop = () => {
+			cx += (tx - cx) * 0.07;
+			cy += (ty - cy) * 0.07;
+			hero.style.setProperty('--mx', cx.toFixed(3));
+			hero.style.setProperty('--my', cy.toFixed(3));
+			if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) {
+				raf = requestAnimationFrame(loop);
+			} else {
+				raf = 0;
+			}
+		};
+
+		hero.addEventListener('pointermove', (e) => {
+			const r = hero.getBoundingClientRect();
+			tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+			ty = ((e.clientY - r.top) / r.height - 0.5) * 2;
+			if (!raf) raf = requestAnimationFrame(loop);
+		});
+
+		hero.addEventListener('pointerleave', () => {
+			tx = 0;
+			ty = 0;
+			if (!raf) raf = requestAnimationFrame(loop);
+		});
+	}
+
+	// ---------- Interactive headings: split into chars + react to cursor ----------
+	const displays = document.querySelectorAll('.display');
+	displays.forEach((el) => {
+		// Preserve markup: walk text nodes, wrap each char in <span>, keep <br> intact
+		const wrap = (node) => {
+			if (node.nodeType === 3) {
+				const frag = document.createDocumentFragment();
+				const text = node.nodeValue;
+				for (const ch of text) {
+					const span = document.createElement('span');
+					if (ch === ' ' || ch === ' ') {
+						span.className = 'char space';
+						span.innerHTML = '&nbsp;';
+					} else if (ch === '­') {
+						// soft hyphen — keep, no wrap
+						span.className = 'char';
+						span.textContent = '­';
+					} else {
+						span.className = 'char';
+						span.textContent = ch;
+					}
+					frag.appendChild(span);
+				}
+				node.parentNode.replaceChild(frag, node);
+			} else if (node.nodeType === 1 && node.tagName !== 'BR') {
+				Array.from(node.childNodes).forEach(wrap);
+			}
+		};
+		Array.from(el.childNodes).forEach(wrap);
+	});
+
+	if (hover && !reducedMotion) {
+		const ROOT_MARGIN = 140; // px of influence around cursor
+		const MAX_LIFT = 18;
+		const MAX_SCALE = 1.18;
+
+		displays.forEach((el) => {
+			const chars = el.querySelectorAll('.char');
+			let raf = 0;
+			let mx = 0, my = 0;
+			let active = false;
+
+			const apply = () => {
+				chars.forEach((ch) => {
+					const r = ch.getBoundingClientRect();
+					const cx = r.left + r.width / 2;
+					const cy = r.top + r.height / 2;
+					const dx = mx - cx;
+					const dy = my - cy;
+					const dist = Math.sqrt(dx * dx + dy * dy);
+					if (dist < ROOT_MARGIN) {
+						const t = 1 - dist / ROOT_MARGIN;
+						const tx = -dx * 0.12 * t;
+						const ty = -MAX_LIFT * t;
+						const scale = 1 + (MAX_SCALE - 1) * t;
+						ch.style.transform = `translate(${tx.toFixed(2)}px, ${ty.toFixed(2)}px) scale(${scale.toFixed(3)})`;
+						if (t > 0.55) ch.classList.add('hot');
+						else ch.classList.remove('hot');
+					} else if (ch.style.transform) {
+						ch.style.transform = '';
+						ch.classList.remove('hot');
+					}
+				});
+				raf = 0;
+			};
+
+			el.addEventListener('pointermove', (e) => {
+				mx = e.clientX;
+				my = e.clientY;
+				active = true;
+				if (!raf) raf = requestAnimationFrame(apply);
+			});
+
+			el.addEventListener('pointerleave', () => {
+				active = false;
+				chars.forEach((ch) => {
+					ch.style.transform = '';
+					ch.classList.remove('hot');
+				});
+			});
+		});
+	}
+</script>
