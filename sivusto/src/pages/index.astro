@@ -14,6 +14,9 @@ const tickerTags = [
 	'Markkinoinnin johtaminen',
 ];
 const tickerRepeats = [0, 1, 2, 3];
+
+// Vertical KOPEPIX side-mark — alternating solid + outline copies
+const verticalCount = 4;
 ---
 
 <Layout>
@@ -22,7 +25,7 @@ const tickerRepeats = [0, 1, 2, 3];
 	<header class="masthead">
 		<a href="#top" class="brand">
 			<span class="brand-mark">KK</span>
-			<span class="brand-name">KOPEPIX</span>
+			<span class="brand-name">Konsta Kivioja <span class="brand-name-suffix">Portfolio</span></span>
 		</a>
 		<nav>
 			<a href="#profile">Profiili</a>
@@ -38,7 +41,6 @@ const tickerRepeats = [0, 1, 2, 3];
 		<section class="hero">
 			<div class="hero-bg" aria-hidden="true">
 				<div class="hero-halo"></div>
-				<div class="hero-grid"></div>
 			</div>
 
 			<div class="hero-stack" data-parallax-host>
@@ -66,15 +68,40 @@ const tickerRepeats = [0, 1, 2, 3];
 			</div>
 		</section>
 
-		<!-- ========== STANDFIRST / MANIFESTO ========== -->
-		<section class="band band--standfirst">
+		<div class="post-hero">
+			<aside class="vertical-mark" aria-hidden="true">
+				{Array.from({ length: verticalCount }).map((_, i) => (
+					<span class={`vertical-text ${i % 2 === 0 ? 'vertical-text--solid' : 'vertical-text--outline'}`}>KOPEPIX</span>
+				))}
+			</aside>
+
+		<!-- ========== PROFIILI ========== -->
+		<section id="profile" class="band band--standfirst" data-section="01" data-section-name="Profiili">
+			<h2 class="display" data-reveal>Profiili</h2>
 			<p class="standfirst" data-reveal>
-				<span class="word">Rakennan</span> <span class="word">visuaalisesti</span>
-				<span class="word">vahvan</span> <span class="word">markkinointi&shy;kokemuksen,</span>
-				<span class="word">joka</span> <span class="word">yhdistää</span>
-				<span class="word">videon,</span> <span class="word">brändin</span>
-				<span class="word">ja</span> <span class="word">digitaalisen</span>
-				<span class="word">tarinankerronnan.</span>
+				<span class="word">Markkinoinnin</span> <span class="word">moniosaaja.</span>
+				<span class="word">Runsaasti</span> <span class="word">kokemusta</span>
+				<span class="word">yhteistyöstä</span> <span class="word">myyntitiimin</span>
+				<span class="word">kanssa</span> <span class="word">tavoitteiden</span>
+				<span class="word">saavuttamiseksi.</span> <span class="word">Olen</span>
+				<span class="word">pätevä</span> <span class="word">laatimaan</span>
+				<span class="word">markkinointi&shy;suunnitelmia,</span> <span class="word">jotka</span>
+				<span class="word">vastaavat</span> <span class="word">yrityksen</span>
+				<span class="word">strategiaa.</span> <span class="word">Olen</span>
+				<span class="word">johtanut</span> <span class="word">kasvuyrityksen</span>
+				<span class="word">ja</span> <span class="word">sen</span>
+				<span class="word">aputoiminimen</span> <span class="word">markkinointia</span>
+				<span class="word">menestyksekkäästi</span> <span class="word">vähillä</span>
+				<span class="word">resursseilla.</span> <span class="word">Tekoälyn</span>
+				<span class="word">osalta</span> <span class="word">olen</span>
+				<span class="word">hyvin</span> <span class="word">perillä</span>
+				<span class="word">tämän</span> <span class="word">hetken</span>
+				<span class="word">mahdollisuuksista</span> <span class="word">ja</span>
+				<span class="word">olen</span> <span class="word">kokeillut</span>
+				<span class="word">kymmeniä</span> <span class="word">eri</span>
+				<span class="word">tekoälytyökaluja.</span> <span class="word">Tarjoan</span>
+				<span class="word">markkinointipalveluja</span> <span class="word">nimellä</span>
+				<span class="word">KopePix.</span>
 			</p>
 			<div class="standfirst-actions">
 				<a href="#work" class="button primary">Katso työt</a>
@@ -82,105 +109,11 @@ const tickerRepeats = [0, 1, 2, 3];
 			</div>
 		</section>
 
-		<!-- ========== 01 — PROFIILI ========== -->
-		<section id="profile" class="band band--split" data-section="01" data-section-name="Profiili">
-			<header class="band-head" data-reveal>
-				<span class="band-num">01 / Profiili</span>
-				<h2 class="display">Markkinointi&shy;päällikkö</h2>
-			</header>
-			<div class="band-body">
-				<p class="lead" data-reveal>
-					Moniosaaja, joka näkee visuaalisuuden ja myynnin samana koneena. Olen johtanut
-					kasvuyrityksen markkinointia menestyksekkäästi vähillä resursseilla — tuloksia
-					tehdään suunnitelmalla, ei budjetilla.
-				</p>
-				<p class="prose" data-reveal>
-					Runsaasti kokemusta yhteistyöstä myyntitiimin kanssa tavoitteiden saavuttamiseksi.
-					Pätevä laatimaan markkinointisuunnitelmia, jotka vastaavat yrityksen strategiaa.
-					Uusien asioiden opettelu enemmän innostaa kuin lannistaa minua.
-				</p>
-				<dl class="pillars" data-reveal>
-					<div class="pillar">
-						<dt><span class="pillar-num">01</span> Strategia</dt>
-						<dd>Ymmärrän tavoitteesi ja sparraan sisältöä, joka toimii.</dd>
-					</div>
-					<div class="pillar">
-						<dt><span class="pillar-num">02</span> Visuaalisuus</dt>
-						<dd>Laadukas jälki tekee brändistäsi tunnistettavan.</dd>
-					</div>
-					<div class="pillar">
-						<dt><span class="pillar-num">03</span> Tulos</dt>
-						<dd>Julkaisut on tehty vaikuttaviksi ja konvertoiviksi.</dd>
-					</div>
-				</dl>
-			</div>
-		</section>
-
-		<!-- ========== 02 — KOKEMUS & KOULUTUS ========== -->
-		<section id="experience" class="band band--split" data-section="02" data-section-name="Kokemus">
-			<header class="band-head" data-reveal>
-				<span class="band-num">02 / Kokemus</span>
-				<h2 class="display">Työpolku<br />ja koulutus</h2>
-			</header>
-			<div class="band-body two-col">
-				<div class="col" data-reveal>
-					<span class="col-label">Työkokemus</span>
-					<ol class="entries">
-						<li>
-							<span class="entry-role">Markkinointipäällikkö</span>
-							<span class="entry-org">Anfra Oy</span>
-						</li>
-						<li>
-							<span class="entry-role">Varastotyöntekijä</span>
-							<span class="entry-org">Pro Nutrition Finland Oy</span>
-						</li>
-						<li>
-							<span class="entry-role">Myyjä</span>
-							<span class="entry-org">Lämpöykkönen Oy</span>
-						</li>
-						<li>
-							<span class="entry-role">Jakaja</span>
-							<span class="entry-org">Kaleva</span>
-						</li>
-						<li>
-							<span class="entry-role">Hormisaneeraaja · kenttämyyjä</span>
-							<span class="entry-org">Fixi Oy</span>
-						</li>
-						<li>
-							<span class="entry-role">Puhelinbuukkari</span>
-							<span class="entry-org">Pisaron Oy</span>
-						</li>
-					</ol>
-				</div>
-				<div class="col" data-reveal>
-					<span class="col-label">Koulutus</span>
-					<ol class="entries">
-						<li>
-							<span class="entry-role">Digimarkkinoinnin perusteet</span>
-							<span class="entry-org">Google Digital Garage · 2022</span>
-						</li>
-						<li>
-							<span class="entry-role">Digital Excellence Academy</span>
-							<span class="entry-org">Saranen Consulting · 2022</span>
-						</li>
-						<li>
-							<span class="entry-role">Ylioppilas</span>
-							<span class="entry-org">Haukiputaan lukio · 2015</span>
-						</li>
-						<li>
-							<span class="entry-role">Liikunta- ja tutor-koulutus</span>
-							<span class="entry-org">Haukiputaan lukio</span>
-						</li>
-					</ol>
-				</div>
-			</div>
-		</section>
-
 		<!-- ========== 03 — OSAAMINEN ========== -->
 		<section id="skills" class="band band--split" data-section="03" data-section-name="Osaaminen">
 			<header class="band-head" data-reveal>
 				<span class="band-num">03 / Osaaminen</span>
-				<h2 class="display">Mitä osaan<br />tehdä sinulle</h2>
+				<h2 class="display">Mitä osaan</h2>
 			</header>
 			<div class="band-body two-col">
 				<div class="col" data-reveal>
@@ -216,8 +149,31 @@ const tickerRepeats = [0, 1, 2, 3];
 				<h2 class="display">Tuoreimmat<br />projektit</h2>
 			</header>
 			<div class="work-list">
-				<a class="work" href="https://youtu.be/rQkSkqKakRA?feature=shared" target="_blank" rel="noopener" data-reveal>
+				<div class="work" data-reveal>
 					<span class="work-index">N° 01</span>
+					<div class="work-meta">
+						<span class="work-tag">Verkkosivut · AI</span>
+						<h3>Tämä sivusto, koodattu Claude Codella</h3>
+						<p>Portfolio-sivusto on rakennettu Astrolla ja koodattu kokonaan Claudea käyttäen.</p>
+					</div>
+					<span class="work-cta inert">Katsot juuri nyt</span>
+				</div>
+				<a class="work" href="https://www.youtube.com/@KDFloorball" target="_blank" rel="noopener" data-reveal>
+					<span class="work-index">N° 02</span>
+					<div class="work-meta">
+						<span class="work-tag">Videoeditointi</span>
+						<h3>Salibandymaajoukkueiden aftermoviet</h3>
+						<p>Ottelu-aftermovieiden editointi YouTube-kanavalle. Lisäksi maalikoosteita editoitu noin 1000 kappaletta.</p>
+					</div>
+					<span class="work-cta">
+						Avaa kanava
+						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+							<path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+						</svg>
+					</span>
+				</a>
+				<a class="work" href="https://youtu.be/rQkSkqKakRA?feature=shared" target="_blank" rel="noopener" data-reveal>
+					<span class="work-index">N° 03</span>
 					<div class="work-meta">
 						<span class="work-tag">Video</span>
 						<h3>Suunnittelu ja toteutus työntekijöiden uratarinoille</h3>
@@ -231,7 +187,7 @@ const tickerRepeats = [0, 1, 2, 3];
 					</span>
 				</a>
 				<a class="work" href="https://anfra-aidat.fi/" target="_blank" rel="noopener" data-reveal>
-					<span class="work-index">N° 02</span>
+					<span class="work-index">N° 04</span>
 					<div class="work-meta">
 						<span class="work-tag">Brändi</span>
 						<h3>Anfra-Aitojen brändi ja verkkosivut</h3>
@@ -245,7 +201,7 @@ const tickerRepeats = [0, 1, 2, 3];
 					</span>
 				</a>
 				<div class="work" data-reveal>
-					<span class="work-index">N° 03</span>
+					<span class="work-index">N° 05</span>
 					<div class="work-meta">
 						<span class="work-tag">AI · Kuvapankki</span>
 						<h3>Brändikuvapankki tekoälyllä</h3>
@@ -256,13 +212,73 @@ const tickerRepeats = [0, 1, 2, 3];
 			</div>
 		</section>
 
+		<!-- ========== 04 — KOKEMUS & KOULUTUS ========== -->
+		<section id="experience" class="band band--split" data-section="04" data-section-name="Kokemus">
+			<header class="band-head" data-reveal>
+				<span class="band-num">04 / Kokemus</span>
+				<h2 class="display">Työpolku<br />ja koulutus</h2>
+			</header>
+			<div class="band-body two-col">
+				<div class="col" data-reveal>
+					<span class="col-label">Työkokemus</span>
+					<ol class="entries">
+						<li>
+							<span class="entry-role">Markkinointipäällikkö</span>
+							<span class="entry-org">Anfra Oy · 10/2022 – 2/2026</span>
+						</li>
+						<li>
+							<span class="entry-role">Varastotyöntekijä</span>
+							<span class="entry-org">Pro Nutrition Finland Oy · 8/2021 – 5/2022</span>
+						</li>
+						<li>
+							<span class="entry-role">Myyjä</span>
+							<span class="entry-org">Lämpöykkönen Oy · 2/2020 – 8/2020</span>
+						</li>
+						<li>
+							<span class="entry-role">Jakaja</span>
+							<span class="entry-org">Kaleva · 11/2018 – 2/2020</span>
+						</li>
+						<li>
+							<span class="entry-role">Savuhormien pinnoittaja · myyjä</span>
+							<span class="entry-org">Fixi Oy · 8/2017 – 10/2018</span>
+						</li>
+						<li>
+							<span class="entry-role">Puhelinbuukkari</span>
+							<span class="entry-org">Pisaron Oy</span>
+						</li>
+					</ol>
+				</div>
+				<div class="col" data-reveal>
+					<span class="col-label">Koulutus</span>
+					<ol class="entries">
+						<li>
+							<span class="entry-role">Digimarkkinoinnin perusteet</span>
+							<span class="entry-org">Google Digital Garage · 2022</span>
+						</li>
+						<li>
+							<span class="entry-role">Digital Excellence Academy</span>
+							<span class="entry-org">Saranen Consulting · 2022</span>
+						</li>
+						<li>
+							<span class="entry-role">Ylioppilas</span>
+							<span class="entry-org">Haukiputaan lukio · 2011–2015</span>
+						</li>
+						<li>
+							<span class="entry-role">Liikunta- ja tutor-koulutus</span>
+							<span class="entry-org">Haukiputaan lukio</span>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</section>
+
 		<!-- ========== 05 — YHTEYS ========== -->
 		<section id="contact" class="band band--contact" data-section="05" data-section-name="Yhteys">
 			<div class="contact-stage" data-reveal>
 				<span class="band-num">05 / Yhteys</span>
 				<h2 class="display contact-display">Tehdäänkö<br />yhdessä?</h2>
 				<p class="contact-lead">
-					Olipa kyse brändistä, verkkosivuista tai videosta — ole rohkeasti yhteydessä.
+					Olipa kyse mistä tahansa markkinoinnin projektista niin ole rohkeasti yhteydessä.
 				</p>
 				<div class="contact-grid">
 					<a class="contact-card" href="mailto:konstakivioja@gmail.com">
@@ -284,6 +300,7 @@ const tickerRepeats = [0, 1, 2, 3];
 				<a class="license-link" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
 			</footer>
 		</section>
+		</div>
 	</main>
 </Layout>
 
@@ -303,8 +320,16 @@ const tickerRepeats = [0, 1, 2, 3];
 		--font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
 	}
 
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
 	html {
 		scroll-behavior: smooth;
+		/* Offset anchor-link scrolling so target sections clear the fixed masthead */
+		scroll-padding-top: 6rem;
 	}
 
 	html,
@@ -321,6 +346,22 @@ const tickerRepeats = [0, 1, 2, 3];
 
 	body {
 		overflow-x: clip;
+		--side-rail: clamp(180px, 30vw, 500px);
+		--vtext-thickness: clamp(7.2rem, 12vw, 13.5rem);
+		--rail-side-gap: calc((var(--side-rail) - var(--vtext-thickness)) / 2);
+	}
+
+	.post-hero {
+		position: relative;
+		padding-left: var(--side-rail);
+		padding-right: var(--rail-side-gap);
+	}
+
+	@media (max-width: 760px) {
+		.post-hero {
+			padding-left: 0;
+			padding-right: 0;
+		}
 	}
 
 	::selection {
@@ -333,14 +374,63 @@ const tickerRepeats = [0, 1, 2, 3];
 		z-index: 1;
 	}
 
+	/* ========== VERTICAL KOPEPIX SIDE-MARK ========== */
+	.vertical-mark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: var(--side-rail);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		/* Top padding aligns the X letter (top of first rotated KOPEPIX) with standfirst text top.
+		   Bottom padding is 0 — last KOPEPIX is allowed to clip at the page bottom. */
+		padding-top: calc(clamp(2rem, 5vw, 4rem) + var(--vtext-thickness) * 1.635);
+		padding-bottom: 0;
+		pointer-events: none;
+		opacity: 0.2;
+		z-index: 4;
+		overflow: hidden;
+	}
+
+	.vertical-text {
+		font-family: 'Saira Stencil One', 'Inter', sans-serif;
+		font-weight: 400;
+		font-size: clamp(7.2rem, 12vw, 13.5rem);
+		letter-spacing: 0;
+		line-height: 1;
+		white-space: nowrap;
+		transform: rotate(-90deg);
+		transform-origin: center center;
+		flex-shrink: 0;
+	}
+
+	.vertical-text--solid {
+		color: #ffffff;
+	}
+
+	.vertical-text--outline {
+		color: transparent;
+		-webkit-text-stroke: 2.5px #ffffff;
+		text-stroke: 2.5px #ffffff;
+	}
+
+	@media (max-width: 760px) {
+		.vertical-mark {
+			display: none;
+		}
+	}
+
 	/* ========== CURSOR LIGHT ========== */
 	.cursor-light {
 		position: fixed;
 		top: 0;
 		left: 0;
-		width: 560px;
-		height: 560px;
-		margin: -280px 0 0 -280px;
+		width: 280px;
+		height: 280px;
+		margin: -140px 0 0 -140px;
 		background: radial-gradient(
 			circle,
 			rgba(125, 211, 252, 0.18) 0%,
@@ -397,9 +487,29 @@ const tickerRepeats = [0, 1, 2, 3];
 	}
 
 	.brand-name {
-		font-size: 0.92rem;
+		font-size: 0.86rem;
 		font-weight: 700;
-		letter-spacing: 0.18em;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.brand-name-suffix {
+		color: var(--ink-low);
+		font-weight: 500;
+		margin-left: 0.25rem;
+	}
+
+	@media (max-width: 560px) {
+		.brand-name-suffix {
+			display: none;
+		}
+	}
+
+	@media (max-width: 380px) {
+		.brand-name {
+			display: none;
+		}
 	}
 
 	.masthead nav {
@@ -474,16 +584,27 @@ const tickerRepeats = [0, 1, 2, 3];
 	/* ========== HERO ========== */
 	.hero {
 		position: relative;
-		min-height: 100vh;
+		height: 100vh; /* fallback */
+		height: 100dvh; /* dynamic viewport — handles mobile URL bar collapse */
+		min-height: 0;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: flex-end; /* pin stack to bottom; photo extends upward toward masthead */
 		align-items: center;
-		padding: clamp(4rem, 5.5vw, 5rem) clamp(1.5rem, 4vw, 3rem) 4rem;
+		padding: 0 clamp(1.5rem, 4vw, 3rem) clamp(3rem, 4vw, 4rem);
 		overflow: hidden;
 		isolation: isolate;
 		--mx: 0;
 		--my: 0;
+	}
+
+	@media (max-width: 760px) {
+		.hero {
+			height: auto;
+			min-height: 0;
+			justify-content: flex-start;
+			padding: clamp(5.25rem, 18vw, 6rem) clamp(1rem, 4vw, 2rem) clamp(3rem, 6vw, 4rem);
+		}
 	}
 
 	/* Backdrop: halo glow + faint grid */
@@ -509,17 +630,6 @@ const tickerRepeats = [0, 1, 2, 3];
 		transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
 	}
 
-	.hero-grid {
-		position: absolute;
-		inset: -2px;
-		background-image:
-			linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-		background-size: clamp(40px, 5vw, 64px) clamp(40px, 5vw, 64px);
-		mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.7) 60%, #000 100%);
-		-webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.7) 60%, #000 100%);
-		opacity: 0.6;
-	}
 
 	.hero-stack {
 		position: relative;
@@ -552,7 +662,9 @@ const tickerRepeats = [0, 1, 2, 3];
 	.hero-line {
 		display: block;
 		white-space: nowrap;
-		font-size: clamp(2.4rem, 10.48vw, 10.5rem);
+		/* Scales with whichever is smaller — viewport width or height — so face clears text on short viewports.
+		   Sized so KONSTA top reaches the t-shirt collar area. */
+		font-size: clamp(1.7rem, min(8.9vw, 15.5vh), 9rem);
 	}
 
 	.hero-line--top {
@@ -565,7 +677,7 @@ const tickerRepeats = [0, 1, 2, 3];
 		font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
 		font-weight: 900;
 		letter-spacing: -0.06em;
-		font-size: clamp(3.6rem, 16vw, 16rem);
+		font-size: clamp(2.55rem, min(13.6vw, 23.5vh), 13.6rem);
 		line-height: 0.82;
 	}
 
@@ -611,8 +723,9 @@ const tickerRepeats = [0, 1, 2, 3];
 	.hero-layer--photo img {
 		display: block;
 		width: auto;
-		height: clamp(780px, 118vh, 1240px);
-		max-width: 96vw;
+		/* Photo fills hero from PORTFOLIO baseline up behind the masthead (top ~12px sits behind blurred masthead). */
+		height: min(1000px, calc(100dvh - 7.5rem));
+		max-width: 92vw;
 		object-fit: contain;
 		object-position: bottom;
 		filter:
@@ -620,6 +733,12 @@ const tickerRepeats = [0, 1, 2, 3];
 			contrast(1.35)
 			brightness(0.62)
 			drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55));
+	}
+
+	@media (max-width: 760px) {
+		.hero-layer--photo img {
+			height: clamp(200px, 48vh, 440px);
+		}
 	}
 
 	/* When fallback JPG used: fade edges via radial mask so white bg disappears */
@@ -676,7 +795,7 @@ const tickerRepeats = [0, 1, 2, 3];
 
 	.hero-ticker-track {
 		display: inline-flex;
-		gap: 2.4rem;
+		gap: 1.25rem;
 		white-space: nowrap;
 		transform: translate3d(calc(var(--ticker-x, 0) * 1px - 40%), 0, 0);
 		will-change: transform;
@@ -693,16 +812,16 @@ const tickerRepeats = [0, 1, 2, 3];
 
 	.ticker-tag::after {
 		content: '·';
-		margin-left: 2.4rem;
+		margin-left: 1.25rem;
 		color: var(--ink-faint);
 	}
 
 	/* ========== BANDS (sections) ========== */
-	/* One smooth pipe — sections flow into each other, no visible dividers */
+	/* One smooth pipe — sections flow into each other, no visible dividers, all left-aligned */
 	.band {
 		position: relative;
 		max-width: 1280px;
-		margin: 0 auto;
+		margin: 0;
 		padding: clamp(4rem, 9vw, 7.5rem) clamp(1.5rem, 4vw, 3rem) clamp(3rem, 6vw, 5rem);
 	}
 
@@ -711,23 +830,28 @@ const tickerRepeats = [0, 1, 2, 3];
 	}
 
 	.band--standfirst {
-		text-align: center;
+		text-align: left;
 		padding-top: clamp(2rem, 5vw, 4rem);
 		padding-bottom: clamp(6rem, 11vw, 10rem);
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-start;
 		gap: 2.5rem;
 	}
 
+	.band--standfirst .pillars {
+		width: 100%;
+		max-width: 900px;
+	}
+
 	.standfirst {
-		max-width: 22ch;
+		max-width: 60ch;
 		margin: 0;
-		font-size: clamp(2rem, 4.2vw, 3.8rem);
-		font-weight: 600;
-		line-height: 1.15;
-		letter-spacing: -0.025em;
-		color: var(--ink-hi);
+		font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+		font-weight: 500;
+		line-height: 1.55;
+		letter-spacing: 0;
+		color: var(--ink-mid);
 	}
 
 	.standfirst .word {
@@ -750,7 +874,7 @@ const tickerRepeats = [0, 1, 2, 3];
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.85rem;
-		justify-content: center;
+		justify-content: flex-start;
 	}
 
 	/* Shared band-head — no hard divider, sits soft inside the flowing pipe */
@@ -938,7 +1062,8 @@ const tickerRepeats = [0, 1, 2, 3];
 	.entries li {
 		counter-increment: entry;
 		display: grid;
-		grid-template-columns: 2.5rem 1fr;
+		grid-template-columns: 2.5rem auto 1fr;
+		column-gap: 1.5rem;
 		align-items: baseline;
 		padding: 1.1rem 0;
 		border-bottom: 1px dashed var(--rule);
@@ -967,7 +1092,16 @@ const tickerRepeats = [0, 1, 2, 3];
 		display: block;
 		color: var(--ink-low);
 		font-size: 0.88rem;
-		margin-top: 0.2rem;
+	}
+
+	@media (max-width: 640px) {
+		.entries li {
+			grid-template-columns: 2.5rem 1fr;
+		}
+		.entry-org {
+			grid-column: 2;
+			margin-top: 0.2rem;
+		}
 	}
 
 	.chips {
@@ -1111,17 +1245,18 @@ const tickerRepeats = [0, 1, 2, 3];
 	.contact-stage {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		text-align: center;
+		align-items: flex-start;
+		text-align: left;
 		padding: 2rem 0;
 	}
 
 	.contact-display {
 		margin: 0.8rem 0 0;
-		font-size: clamp(3rem, 9vw, 8rem);
+		/* Match other section display headings */
+		font-size: clamp(2.6rem, 6vw, 5.5rem);
 		font-weight: 800;
 		line-height: 0.95;
-		letter-spacing: -0.045em;
+		letter-spacing: -0.035em;
 		color: var(--ink-hi);
 	}
 
@@ -1250,6 +1385,137 @@ const tickerRepeats = [0, 1, 2, 3];
 		transform: none;
 	}
 
+	/* ========== MOBILE TIGHTER SPACING (placed late so it overrides earlier rules) ========== */
+	@media (max-width: 760px) {
+		/* Revert hero text sizes to the previous (larger) values on mobile */
+		.hero-line {
+			font-size: clamp(2rem, min(10.48vw, 18vh), 10.5rem);
+		}
+		.hero-line--bottom {
+			font-size: clamp(3rem, min(16vw, 27vh), 16rem);
+		}
+
+		/* Compact section padding so more sections fit on screen */
+		.band {
+			padding: 1rem clamp(1rem, 4vw, 1.5rem) 0.75rem;
+		}
+
+		/* Sections after standfirst get extra top padding to visually separate from previous section.
+		   Overrides the desktop `.band + .band { padding-top: 0 }` rule (same specificity, later in source). */
+		.band + .band {
+			padding-top: 2.5rem;
+		}
+
+		.band--standfirst {
+			padding-top: 1rem;
+			padding-bottom: 1.5rem;
+			gap: 1rem;
+		}
+
+		.standfirst {
+			/* Same size as entry-role ("Markkinointipäällikkö" etc.) */
+			font-size: 1.02rem;
+			line-height: 1.45;
+		}
+
+		/* Tighter ticker so at least 3 tags fit in mobile viewport */
+		.hero-ticker-track {
+			gap: 0.5rem;
+		}
+		.ticker-tag {
+			font-size: 0.55rem;
+			letter-spacing: 0.08em;
+		}
+		.ticker-tag::after {
+			margin-left: 0.5rem;
+		}
+		.hero-ticker {
+			/* Reduce edge fade so more tags fit in visible area */
+			mask-image: linear-gradient(90deg, transparent 0%, #000 3%, #000 97%, transparent 100%);
+			-webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 3%, #000 97%, transparent 100%);
+		}
+
+		.display {
+			font-size: clamp(1.6rem, 7vw, 2.6rem);
+		}
+
+		.band-head {
+			margin-bottom: 1rem;
+		}
+
+		.lead {
+			font-size: 1rem;
+			line-height: 1.4;
+			margin-bottom: 0.75rem;
+		}
+
+		.prose {
+			font-size: 0.95rem;
+			line-height: 1.55;
+			margin-bottom: 1rem;
+		}
+
+		.pillars {
+			gap: 0.5rem;
+			margin-top: 1rem;
+		}
+
+		.pillar {
+			padding: 1rem 1.1rem 1.2rem;
+		}
+
+		.entries li {
+			padding: 0.7rem 0;
+		}
+
+		.chips {
+			gap: 0.4rem;
+		}
+
+		.chips li {
+			padding: 0.5rem 0.85rem;
+			font-size: 0.85rem;
+		}
+
+		.col-label {
+			margin-bottom: 0.75rem;
+			padding-bottom: 0.5rem;
+		}
+
+		.two-col {
+			gap: 1.5rem;
+		}
+
+		.work {
+			padding: 1rem 0;
+		}
+
+		.work h3 {
+			font-size: clamp(1.05rem, 4vw, 1.4rem);
+		}
+
+		.contact-grid {
+			gap: 0.6rem;
+		}
+
+		.contact-card {
+			padding: 1.1rem 1.2rem;
+		}
+
+		.contact-stage {
+			padding: 0.5rem 0;
+		}
+
+		.contact-lead {
+			margin: 0.75rem 0 1.5rem;
+		}
+
+		.colophon {
+			margin-top: 2rem;
+			padding: 1.25rem clamp(1rem, 4vw, 1.5rem);
+		}
+	}
+
 	@media (prefers-reduced-motion: reduce) {
 		[data-reveal],
 		.standfirst .word {
@@ -1291,6 +1557,18 @@ const tickerRepeats = [0, 1, 2, 3];
 		w.style.setProperty('--i', i);
 	});
 
+	// ---------- Hero height → CSS var so vertical-mark starts after hero ----------
+	const hero = document.querySelector('.hero');
+	if (hero) {
+		const updateHeroBottom = () => {
+			document.body.style.setProperty('--hero-bottom', hero.offsetHeight + 'px');
+		};
+		updateHeroBottom();
+		window.addEventListener('resize', updateHeroBottom);
+		document.fonts?.ready?.then(updateHeroBottom);
+		window.addEventListener('load', updateHeroBottom);
+	}
+
 	// ---------- Hero ticker — scroll-driven horizontal translate ----------
 	const tickerTrack = document.querySelector('.hero-ticker-track');
 	if (tickerTrack) {
@@ -1330,7 +1608,6 @@ const tickerRepeats = [0, 1, 2, 3];
 	}
 
 	// ---------- Hero mouse parallax ----------
-	const hero = document.querySelector('.hero');
 	const parallaxHost = document.querySelector('[data-parallax-host]');
 	const halo = document.querySelector('.hero-halo');
 	if (hero && hover && !reducedMotion) {
