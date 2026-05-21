@@ -1,5 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const tickerTags = [
+	'Digitaalinen markkinointi',
+	'Brändi',
+	'Valokuvaus',
+	'Videot',
+	'Editointi',
+	'Verkkosivut',
+	'Tekoälyn integrointi',
+	'Sosiaalinen media',
+	'Graafinen suunnittelu',
+	'Markkinoinnin johtaminen',
+];
+const tickerRepeats = [0, 1, 2, 3];
 ---
 
 <Layout>
@@ -28,31 +42,27 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 
 			<div class="hero-stack" data-parallax-host>
-				<div class="hero-layer hero-layer--back" aria-hidden="true" data-depth="0">
+				<h1 class="hero-layer hero-layer--back" aria-label="Konsta Kivioja Portfolio" data-depth="0">
 					<span class="hero-line hero-line--top">KONSTA KIVIOJA</span>
 					<span class="hero-line hero-line--bottom">PORTFOLIO</span>
-				</div>
+				</h1>
 
 				<div class="hero-layer hero-layer--photo" aria-hidden="true" data-depth="1.2">
 					<img src="/hero-cutout.png" onerror="this.src='/hero.jpg'; this.classList.add('hero-photo-fallback');" alt="" />
 				</div>
 
-				<h1 class="hero-layer hero-layer--front" aria-label="Konsta Kivioja Portfolio" data-depth="0">
+				<div class="hero-layer hero-layer--front" aria-hidden="true" data-depth="0">
 					<span class="hero-line hero-line--top">KONSTA KIVIOJA</span>
-					<span class="hero-line hero-line--bottom">PORTFOLIO</span>
-				</h1>
+					<span class="hero-line hero-line--bottom" aria-hidden="true">PORTFOLIO</span>
+				</div>
 			</div>
 
-			<div class="hero-meta">
-				<span class="meta-right">Markkinointi · Visuaalinen tuotanto · Kopepix</span>
-			</div>
-
-			<div class="hero-scroll-cue" aria-hidden="true">
-				<span>Selaa</span>
-				<svg width="14" height="22" viewBox="0 0 14 22" fill="none">
-					<rect x="0.5" y="0.5" width="13" height="21" rx="6.5" stroke="currentColor"></rect>
-					<circle cx="7" cy="7" r="2" fill="currentColor"></circle>
-				</svg>
+			<div class="hero-ticker" aria-hidden="true">
+				<div class="hero-ticker-track">
+					{tickerRepeats.map(() => tickerTags.map((tag) => (
+						<span class="ticker-tag">{tag}</span>
+					)))}
+				</div>
 			</div>
 		</section>
 
@@ -271,6 +281,7 @@ import Layout from '../layouts/Layout.astro';
 			<footer class="colophon">
 				<span>© 2026 Konsta Kivioja · Kopepix</span>
 				<a href="#top">Takaisin ylös ↑</a>
+				<a class="license-link" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
 			</footer>
 		</section>
 	</main>
@@ -540,22 +551,53 @@ import Layout from '../layouts/Layout.astro';
 
 	.hero-line {
 		display: block;
-		font-size: clamp(2.6rem, 11vw, 11rem);
+		white-space: nowrap;
+		font-size: clamp(2.4rem, 10.48vw, 10.5rem);
 	}
 
 	.hero-line--top {
-		letter-spacing: -0.04em;
+		font-family: 'Saira Stencil One', 'Inter', sans-serif;
+		font-weight: 400;
+		letter-spacing: 0;
 	}
 
 	.hero-line--bottom {
+		font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+		font-weight: 900;
 		letter-spacing: -0.06em;
 		font-size: clamp(3.6rem, 16vw, 16rem);
 		line-height: 0.82;
 	}
 
-	/* Layer 1: solid white text behind */
-	.hero-layer--back .hero-line {
+	/* Layer 1: solid white KONSTA — sits behind the cutout photo so person blocks it visually */
+	.hero-layer--back .hero-line--top {
 		color: #ffffff;
+	}
+
+	/* PORTFOLIO on the back layer is a structural placeholder — actual PORTFOLIO sits on the front layer */
+	.hero-layer--back .hero-line--bottom {
+		visibility: hidden;
+	}
+
+	/* Layer 3: stencil outline ONLY for KONSTA KIVIOJA — shows where it overlaps the photo */
+	.hero-layer--front .hero-line--top {
+		color: transparent;
+		-webkit-text-stroke: 1.8px #ffffff;
+		text-stroke: 1.8px #ffffff;
+	}
+
+	/* PORTFOLIO sits on the FRONT layer — fully visible on top of the photo */
+	.hero-layer--front .hero-line--bottom {
+		visibility: visible;
+		color: #ffffff;
+		-webkit-text-stroke: 0;
+		text-stroke: 0;
+	}
+
+	@media (max-width: 720px) {
+		.hero-layer--front .hero-line--top {
+			-webkit-text-stroke-width: 1px;
+		}
 	}
 
 	/* Layer 2: person photo — bottom-aligned to grid cell so its bottom lines up with PORTFOLIO baseline */
@@ -599,55 +641,6 @@ import Layout from '../layouts/Layout.astro';
 		);
 	}
 
-	/* Layer 3: outline-only text on top — appears as outline where it overlaps person */
-	.hero-layer--front .hero-line {
-		color: transparent;
-		-webkit-text-stroke: 2.5px #ffffff;
-		text-stroke: 2.5px #ffffff;
-	}
-
-	@media (max-width: 720px) {
-		.hero-layer--front .hero-line {
-			-webkit-text-stroke-width: 1.2px;
-		}
-	}
-
-	.hero-meta {
-		position: absolute;
-		bottom: 1.6rem;
-		left: clamp(1.5rem, 4vw, 3rem);
-		right: clamp(1.5rem, 4vw, 3rem);
-		display: flex;
-		justify-content: space-between;
-		font-family: var(--font-mono);
-		font-size: 0.72rem;
-		letter-spacing: 0.18em;
-		text-transform: uppercase;
-		color: var(--ink-low);
-		pointer-events: none;
-	}
-
-	.meta-left {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.55rem;
-	}
-
-	.meta-dot {
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
-		background: var(--accent);
-		box-shadow: 0 0 0 0 rgba(108, 210, 255, 0.6);
-		animation: meta-pulse 2.4s ease-out infinite;
-	}
-
-	@keyframes meta-pulse {
-		0% { box-shadow: 0 0 0 0 rgba(108, 210, 255, 0.55); }
-		70% { box-shadow: 0 0 0 12px rgba(108, 210, 255, 0); }
-		100% { box-shadow: 0 0 0 0 rgba(108, 210, 255, 0); }
-	}
-
 	/* Hero entrance animation */
 	@keyframes hero-rise {
 		from {
@@ -661,43 +654,47 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.hero-stack,
-	.hero-meta,
-	.hero-scroll-cue {
+	.hero-ticker {
 		animation: hero-rise 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 	}
 
-	.hero-meta {
-		animation-delay: 220ms;
+	.hero-ticker {
+		animation-delay: 280ms;
 	}
 
-	.hero-scroll-cue {
-		animation-delay: 380ms;
-	}
-
-	.hero-scroll-cue {
+	/* ========== HERO TICKER — moves horizontally driven by vertical scroll ========== */
+	.hero-ticker {
 		position: absolute;
-		bottom: 4.5rem;
-		left: 50%;
-		transform: translateX(-50%);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.5rem;
+		bottom: 1.6rem;
+		left: 0;
+		right: 0;
+		overflow: hidden;
+		pointer-events: none;
+		mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+		-webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+	}
+
+	.hero-ticker-track {
+		display: inline-flex;
+		gap: 2.4rem;
+		white-space: nowrap;
+		transform: translate3d(calc(var(--ticker-x, 0) * 1px - 40%), 0, 0);
+		will-change: transform;
+	}
+
+	.ticker-tag {
+		flex-shrink: 0;
 		font-family: var(--font-mono);
-		font-size: 0.7rem;
-		letter-spacing: 0.32em;
+		font-size: 0.78rem;
+		letter-spacing: 0.22em;
 		text-transform: uppercase;
-		color: var(--ink-low);
+		color: var(--ink-mid);
 	}
 
-	.hero-scroll-cue svg {
-		opacity: 0.55;
-		animation: scroll-bounce 2s ease-in-out infinite;
-	}
-
-	@keyframes scroll-bounce {
-		0%, 100% { transform: translateY(0); }
-		50% { transform: translateY(4px); }
+	.ticker-tag::after {
+		content: '·';
+		margin-left: 2.4rem;
+		color: var(--ink-faint);
 	}
 
 	/* ========== BANDS (sections) ========== */
@@ -1229,6 +1226,18 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--accent);
 	}
 
+	.colophon .license-link {
+		font-size: 0.62rem;
+		letter-spacing: 0.18em;
+		opacity: 0.3;
+		transition: opacity 200ms ease, color 200ms ease;
+	}
+
+	.colophon .license-link:hover {
+		opacity: 0.8;
+		color: var(--accent);
+	}
+
 	/* ========== REVEAL ON SCROLL ========== */
 	[data-reveal] {
 		opacity: 0;
@@ -1247,9 +1256,6 @@ import Layout from '../layouts/Layout.astro';
 			opacity: 1;
 			transform: none;
 			transition: none;
-		}
-		.hero-scroll-cue svg {
-			animation: none;
 		}
 		html {
 			scroll-behavior: auto;
@@ -1284,6 +1290,25 @@ import Layout from '../layouts/Layout.astro';
 	document.querySelectorAll('.standfirst .word').forEach((w, i) => {
 		w.style.setProperty('--i', i);
 	});
+
+	// ---------- Hero ticker — scroll-driven horizontal translate ----------
+	const tickerTrack = document.querySelector('.hero-ticker-track');
+	if (tickerTrack) {
+		let tRaf = 0;
+		const TICKER_MULT = 0.35; // scroll multiplier — higher = faster ticker
+		const updateTicker = () => {
+			tickerTrack.style.setProperty('--ticker-x', window.scrollY * TICKER_MULT);
+			tRaf = 0;
+		};
+		window.addEventListener(
+			'scroll',
+			() => {
+				if (!tRaf) tRaf = requestAnimationFrame(updateTicker);
+			},
+			{ passive: true }
+		);
+		updateTicker();
+	}
 
 	// ---------- Reveal on scroll ----------
 	const reveals = document.querySelectorAll('[data-reveal]');
