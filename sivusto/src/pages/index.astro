@@ -20,6 +20,7 @@ const verticalCount = 8;
 ---
 
 <Layout>
+	<a class="skip-link" href="#top">Siirry sisältöön</a>
 	<div class="cursor-light" aria-hidden="true"></div>
 
 	<header class="masthead">
@@ -50,7 +51,16 @@ const verticalCount = 8;
 				</h1>
 
 				<div class="hero-layer hero-layer--photo" aria-hidden="true">
-					<img src="/hero-cutout.png" onerror="this.src='/hero.jpg'; this.classList.add('hero-photo-fallback');" alt="" />
+					<picture>
+						<source srcset="/hero-cutout.webp" type="image/webp" />
+						<img
+							src="/hero-cutout.png"
+							onerror="this.src='/hero.jpg'; this.classList.add('hero-photo-fallback');"
+							alt=""
+							decoding="async"
+							fetchpriority="high"
+						/>
+					</picture>
 				</div>
 
 				<div class="hero-layer hero-layer--front" aria-hidden="true">
@@ -117,7 +127,7 @@ const verticalCount = 8;
 			</header>
 			<div class="band-body two-col">
 				<div class="col" data-reveal>
-					<span class="col-label">Markkinointi</span>
+					<h3 class="col-label">Markkinointi</h3>
 					<ul class="chips">
 						<li>Markkinoinnin johtaminen</li>
 						<li>Verkkosivujen teko ja päivitys</li>
@@ -130,7 +140,7 @@ const verticalCount = 8;
 					</ul>
 				</div>
 				<div class="col" data-reveal>
-					<span class="col-label">Ohjelmistot</span>
+					<h3 class="col-label">Ohjelmistot</h3>
 					<ul class="chips">
 						<li>Photoshop</li>
 						<li>Lightroom</li>
@@ -220,7 +230,7 @@ const verticalCount = 8;
 			</header>
 			<div class="band-body two-col">
 				<div class="col" data-reveal>
-					<span class="col-label">Työkokemus</span>
+					<h3 class="col-label">Työkokemus</h3>
 					<ol class="entries">
 						<li>
 							<span class="entry-role">Markkinointipäällikkö</span>
@@ -249,7 +259,7 @@ const verticalCount = 8;
 					</ol>
 				</div>
 				<div class="col" data-reveal>
-					<span class="col-label">Koulutus</span>
+					<h3 class="col-label">Koulutus</h3>
 					<ol class="entries">
 						<li>
 							<span class="entry-role">Digimarkkinoinnin perusteet</span>
@@ -313,11 +323,14 @@ const verticalCount = 8;
 		--ink-hi: #f4f6fb;
 		--ink-mid: #c4cee0;
 		--ink-low: #8895ad;
-		--ink-faint: #4a546b;
+		/* Bumped from #4a546b to meet WCAG AA (4.5:1) for small text on --bg-1 */
+		--ink-faint: #6b7691;
 		--accent: #6cd2ff;
 		--rule: rgba(255, 255, 255, 0.08);
-		--font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
-		--font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+		/* Body: Bricolage Grotesque (off the reflex-reject list, variable axes) */
+		--font-sans: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+		/* Heavy display weight for PORTFOLIO — Inter Black is committed brand move at huge size */
+		--font-display: 'Inter', 'Segoe UI', system-ui, sans-serif;
 	}
 
 	*,
@@ -460,7 +473,28 @@ const verticalCount = 8;
 		opacity: 1;
 	}
 
+	/* ========== SKIP LINK (a11y) ========== */
+	.skip-link {
+		position: fixed;
+		top: -100px;
+		left: 1rem;
+		z-index: 100;
+		padding: 0.75rem 1.25rem;
+		background: var(--accent);
+		color: var(--bg-0);
+		font-weight: 700;
+		text-decoration: none;
+		border-radius: 6px;
+		transition: top 180ms ease;
+	}
+	.skip-link:focus {
+		top: 1rem;
+		outline: 2px solid var(--ink-hi);
+		outline-offset: 2px;
+	}
+
 	/* ========== MASTHEAD ========== */
+	/* Solid background — glassmorphism removed (was 'default mode' not purposeful) */
 	.masthead {
 		position: fixed;
 		top: 0;
@@ -471,9 +505,8 @@ const verticalCount = 8;
 		align-items: center;
 		justify-content: space-between;
 		padding: 1.2rem clamp(1.2rem, 4vw, 3rem);
-		background: linear-gradient(180deg, rgba(2, 5, 15, 0.7), rgba(2, 5, 15, 0.1));
-		backdrop-filter: blur(18px);
-		-webkit-backdrop-filter: blur(18px);
+		background: var(--bg-1);
+		border-bottom: 1px solid var(--rule);
 	}
 
 	.brand {
@@ -492,7 +525,7 @@ const verticalCount = 8;
 		height: 30px;
 		border: 1px solid rgba(255, 255, 255, 0.2);
 		border-radius: 50%;
-		font-family: var(--font-mono);
+		font-family: var(--font-sans);
 		font-size: 0.7rem;
 		font-weight: 500;
 	}
@@ -530,16 +563,22 @@ const verticalCount = 8;
 	}
 
 	.masthead nav a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
+		padding: 0.55rem 0.6rem;
 		color: var(--ink-mid);
 		text-decoration: none;
-		font-size: 0.84rem;
+		font-size: 0.92rem;
 		font-weight: 500;
-		letter-spacing: 0.04em;
+		letter-spacing: 0.01em;
 		transition: color 180ms ease;
 	}
 
-	.masthead nav a:hover {
+	.masthead nav a:hover,
+	.masthead nav a:focus-visible {
 		color: var(--accent);
+		outline: none;
 	}
 
 	.nav-cta {
@@ -570,7 +609,7 @@ const verticalCount = 8;
 		display: flex;
 		align-items: center;
 		gap: 0.6rem;
-		font-family: var(--font-mono);
+		font-family: var(--font-sans);
 		font-size: 0.72rem;
 		letter-spacing: 0.32em;
 		text-transform: uppercase;
@@ -683,10 +722,11 @@ const verticalCount = 8;
 	}
 
 	.hero-line--bottom {
-		font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+		font-family: var(--font-display);
 		font-weight: 900;
 		letter-spacing: -0.06em;
-		font-size: clamp(2.55rem, min(13.6vw, 23.5vh), 13.6rem);
+		/* Max raised 13.6rem → 13.75rem so PORTFOLIO width matches KONSTA KIVIOJA when KONSTA hits its 9rem cap */
+		font-size: clamp(2.6rem, min(13.6vw, 23.5vh), 13.75rem);
 		line-height: 0.82;
 	}
 
@@ -828,7 +868,7 @@ const verticalCount = 8;
 
 	.ticker-tag {
 		flex-shrink: 0;
-		font-family: var(--font-mono);
+		font-family: var(--font-sans);
 		font-size: 0.78rem;
 		letter-spacing: 0.22em;
 		text-transform: uppercase;
@@ -864,10 +904,6 @@ const verticalCount = 8;
 		gap: 2.5rem;
 	}
 
-	.band--standfirst .pillars {
-		width: 100%;
-		max-width: 900px;
-	}
 
 	.standfirst {
 		max-width: 60ch;
@@ -1010,57 +1046,10 @@ const verticalCount = 8;
 		border-color: rgba(255, 255, 255, 0.4);
 	}
 
-	/* ========== PROFILE: PILLARS ========== */
-	.pillars {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1rem;
-		margin: 2rem 0 0;
-	}
-
-	.pillar {
-		padding: 1.6rem 1.6rem 1.8rem;
-		border-radius: 18px;
-		background: rgba(255, 255, 255, 0.02);
-		border: 1px solid var(--rule);
-		transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
-	}
-
-	.pillar:hover {
-		background: rgba(108, 210, 255, 0.05);
-		border-color: rgba(108, 210, 255, 0.25);
-		transform: translateY(-3px);
-	}
-
-	.pillar dt {
-		font-size: 1.15rem;
-		font-weight: 700;
-		color: var(--ink-hi);
-		margin-bottom: 0.6rem;
-	}
-
-	.pillar dd {
-		margin: 0;
-		color: var(--ink-mid);
-		font-size: 0.95rem;
-		line-height: 1.6;
-	}
-
-	.pillar-num {
-		display: inline-block;
-		font-family: var(--font-mono);
-		font-size: 0.68rem;
-		color: var(--accent);
-		letter-spacing: 0.18em;
-		padding-right: 0.5rem;
-		opacity: 0.85;
-		vertical-align: 0.18em;
-	}
+	/* Pillars / pillar / pillar-num CSS removed — markup no longer renders these. */
 
 	@media (max-width: 880px) {
-		.pillars {
-			grid-template-columns: 1fr;
-		}
+		/* (placeholder for future column overrides if needed) */
 	}
 
 	/* ========== TWO COL (kokemus + skills) ========== */
@@ -1070,15 +1059,17 @@ const verticalCount = 8;
 		gap: clamp(2rem, 5vw, 5rem);
 	}
 
+	/* Sentence-case col-label — removed tracked uppercase to break the repeated-label slop pattern.
+	   Hierarchy comes from weight + size now, not from caps + tracking. */
 	.col-label {
 		display: block;
-		font-family: var(--font-mono);
-		font-size: 0.74rem;
-		letter-spacing: 0.22em;
-		text-transform: uppercase;
-		color: var(--accent);
-		margin-bottom: 1.5rem;
-		padding-bottom: 0.9rem;
+		margin: 0 0 1.25rem;
+		font-family: var(--font-sans);
+		font-size: 1.05rem;
+		font-weight: 600;
+		letter-spacing: -0.005em;
+		color: var(--ink-hi);
+		padding-bottom: 0.75rem;
 		border-bottom: 1px solid var(--rule);
 	}
 
@@ -1102,7 +1093,7 @@ const verticalCount = 8;
 
 	.entries li::before {
 		content: counter(entry, decimal-leading-zero);
-		font-family: var(--font-mono);
+		font-family: var(--font-sans);
 		font-size: 0.72rem;
 		color: var(--ink-faint);
 	}
@@ -1194,7 +1185,7 @@ const verticalCount = 8;
 	}
 
 	.work-index {
-		font-family: var(--font-mono);
+		font-family: var(--font-sans);
 		font-size: 0.78rem;
 		letter-spacing: 0.22em;
 		text-transform: uppercase;
@@ -1208,7 +1199,7 @@ const verticalCount = 8;
 
 	.work-tag {
 		display: inline-block;
-		font-family: var(--font-mono);
+		font-family: var(--font-sans);
 		font-size: 0.7rem;
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
@@ -1240,7 +1231,7 @@ const verticalCount = 8;
 		display: inline-flex;
 		align-items: center;
 		gap: 0.45rem;
-		font-family: var(--font-mono);
+		font-family: var(--font-sans);
 		font-size: 0.78rem;
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
@@ -1334,7 +1325,7 @@ const verticalCount = 8;
 	.contact-label {
 		grid-column: 1;
 		grid-row: 1;
-		font-family: var(--font-mono);
+		font-family: var(--font-sans);
 		font-size: 0.74rem;
 		letter-spacing: 0.22em;
 		text-transform: uppercase;
@@ -1375,7 +1366,7 @@ const verticalCount = 8;
 		justify-content: space-between;
 		flex-wrap: wrap;
 		gap: 1rem;
-		font-family: var(--font-mono);
+		font-family: var(--font-sans);
 		font-size: 0.72rem;
 		letter-spacing: 0.14em;
 		color: var(--ink-low);
@@ -1509,15 +1500,6 @@ const verticalCount = 8;
 			margin-bottom: 1rem;
 		}
 
-		.pillars {
-			gap: 0.5rem;
-			margin-top: 1rem;
-		}
-
-		.pillar {
-			padding: 1rem 1.1rem 1.2rem;
-		}
-
 		.entries li {
 			padding: 0.7rem 0;
 		}
@@ -1619,17 +1601,7 @@ const verticalCount = 8;
 		w.style.setProperty('--i', i);
 	});
 
-	// ---------- Hero height → CSS var so vertical-mark starts after hero ----------
-	const hero = document.querySelector('.hero');
-	if (hero) {
-		const updateHeroBottom = () => {
-			document.body.style.setProperty('--hero-bottom', hero.offsetHeight + 'px');
-		};
-		updateHeroBottom();
-		window.addEventListener('resize', updateHeroBottom);
-		document.fonts?.ready?.then(updateHeroBottom);
-		window.addEventListener('load', updateHeroBottom);
-	}
+	// (Old --hero-bottom JS removed — vertical-mark is now inside .post-hero, no measurement needed)
 
 	// ---------- Hero ticker — scroll-driven horizontal translate ----------
 	// Skip entirely if user prefers reduced motion — horizontal scroll-driven motion is a vestibular risk.
