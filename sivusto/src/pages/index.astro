@@ -16,7 +16,7 @@ const tickerTags = [
 const tickerRepeats = [0, 1, 2, 3];
 
 // Vertical KOPEPIX side-mark — alternating solid + outline copies
-const verticalCount = 4;
+const verticalCount = 8;
 ---
 
 <Layout>
@@ -383,12 +383,16 @@ const verticalCount = 4;
 		width: var(--side-rail);
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		justify-content: flex-start;
 		align-items: center;
 		/* Top padding aligns the X letter (top of first rotated KOPEPIX) with standfirst text top.
-		   Bottom padding is 0 — last KOPEPIX is allowed to clip at the page bottom. */
+		   Bottom padding is 0 — extra items at the bottom are allowed to clip. */
 		padding-top: calc(clamp(2rem, 5vw, 4rem) + var(--vtext-thickness) * 1.635);
 		padding-bottom: 0;
+		/* Fixed DOM gap = visual_gap + (visual_height - DOM_height).
+		   For Saira Stencil: visual_height ≈ font * 4.27, DOM_height = font.
+		   So compensation = font * 3.27. Visual gap added on top (~150px) stays constant on every viewport. */
+		gap: calc(150px + var(--vtext-thickness) * 3.27);
 		pointer-events: none;
 		opacity: 0.2;
 		z-index: 4;
