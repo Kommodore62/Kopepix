@@ -43,17 +43,17 @@ const verticalCount = 8;
 				<div class="hero-halo"></div>
 			</div>
 
-			<div class="hero-stack" data-parallax-host>
-				<h1 class="hero-layer hero-layer--back" aria-label="Konsta Kivioja Portfolio" data-depth="0">
+			<div class="hero-stack">
+				<h1 class="hero-layer hero-layer--back" aria-label="Konsta Kivioja Portfolio">
 					<span class="hero-line hero-line--top">KONSTA KIVIOJA</span>
 					<span class="hero-line hero-line--bottom">PORTFOLIO</span>
 				</h1>
 
-				<div class="hero-layer hero-layer--photo" aria-hidden="true" data-depth="1.2">
+				<div class="hero-layer hero-layer--photo" aria-hidden="true">
 					<img src="/hero-cutout.png" onerror="this.src='/hero.jpg'; this.classList.add('hero-photo-fallback');" alt="" />
 				</div>
 
-				<div class="hero-layer hero-layer--front" aria-hidden="true" data-depth="0">
+				<div class="hero-layer hero-layer--front" aria-hidden="true">
 					<span class="hero-line hero-line--top">KONSTA KIVIOJA</span>
 					<span class="hero-line hero-line--bottom" aria-hidden="true">PORTFOLIO</span>
 				</div>
@@ -78,7 +78,7 @@ const verticalCount = 8;
 		<!-- ========== PROFIILI ========== -->
 		<section id="profile" class="band band--standfirst" data-section="01" data-section-name="Profiili">
 			<h2 class="display" data-reveal>Profiili</h2>
-			<p class="standfirst" data-reveal>
+			<p class="standfirst" data-reveal data-reveal-tier="primary">
 				<span class="word">Markkinoinnin</span> <span class="word">moniosaaja.</span>
 				<span class="word">Runsaasti</span> <span class="word">kokemusta</span>
 				<span class="word">yhteistyöstä</span> <span class="word">myyntitiimin</span>
@@ -324,6 +324,13 @@ const verticalCount = 8;
 	*::before,
 	*::after {
 		box-sizing: border-box;
+	}
+
+	/* Animatable custom properties — enables CSS-native interpolation when transitions are added later */
+	@property --ticker-x {
+		syntax: '<number>';
+		inherits: false;
+		initial-value: 0;
 	}
 
 	html {
@@ -625,7 +632,7 @@ const verticalCount = 8;
 		top: 50%;
 		width: 90vmin;
 		height: 90vmin;
-		transform: translate(-50%, -50%) translate3d(calc(var(--mx) * 18px), calc(var(--my) * 18px), 0);
+		transform: translate(-50%, -50%);
 		background:
 			radial-gradient(circle at 50% 50%, rgba(108, 210, 255, 0.16) 0%, rgba(108, 210, 255, 0.06) 30%, transparent 65%),
 			radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 70%);
@@ -659,8 +666,6 @@ const verticalCount = 8;
 		font-weight: 900;
 		letter-spacing: -0.045em;
 		line-height: 0.88;
-		transform: translate3d(calc(var(--mx) * var(--depth, 0) * 14px), calc(var(--my) * var(--depth, 0) * 14px), 0);
-		transition: transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1);
 	}
 
 	.hero-line {
@@ -695,7 +700,21 @@ const verticalCount = 8;
 		visibility: hidden;
 	}
 
-	/* Layer 3: stencil outline ONLY for KONSTA KIVIOJA — shows where it overlaps the photo */
+	/* Layer 3: stencil outline ONLY for KONSTA KIVIOJA — shows where it overlaps the photo.
+	   Explicit position/z-index ensures the layer renders ON TOP of the photo
+	   (DOM order alone is fragile when a parent has a stacking-context-creating filter). */
+	.hero-layer--front {
+		position: relative;
+		z-index: 3;
+	}
+	.hero-layer--photo {
+		position: relative;
+		z-index: 2;
+	}
+	.hero-layer--back {
+		position: relative;
+		z-index: 1;
+	}
 	.hero-layer--front .hero-line--top {
 		color: transparent;
 		-webkit-text-stroke: 1.8px #ffffff;
@@ -764,25 +783,27 @@ const verticalCount = 8;
 		);
 	}
 
-	/* Hero entrance animation */
+	/* Hero entrance animation — Jakub recipe (opacity + translateY + blur) */
 	@keyframes hero-rise {
 		from {
 			opacity: 0;
-			transform: translateY(28px);
+			transform: translateY(20px);
+			filter: blur(6px);
 		}
 		to {
 			opacity: 1;
 			transform: translateY(0);
+			filter: blur(0);
 		}
 	}
 
 	.hero-stack,
 	.hero-ticker {
-		animation: hero-rise 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+		animation: hero-rise 800ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 	}
 
 	.hero-ticker {
-		animation-delay: 280ms;
+		animation-delay: 220ms;
 	}
 
 	/* ========== HERO TICKER — moves horizontally driven by vertical scroll ========== */
@@ -902,22 +923,27 @@ const verticalCount = 8;
 		cursor: default;
 	}
 
-	/* Interactive headings: each letter reacts to cursor proximity */
-	.display .char {
+	/* Interactive headings: each letter reacts to cursor proximity.
+	   linear(...) approximates a subtle spring — slight overshoot then settle, fits the portfolio's playful tone.
+	   :global() because .char spans are created by JS after Astro's scoped style is applied. */
+	.display :global(.char) {
 		display: inline-block;
-		transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1), color 320ms ease, text-shadow 320ms ease;
+		transition:
+			transform 360ms linear(0, 0.45, 0.85, 1.05 60%, 1.02, 1),
+			color 320ms ease,
+			text-shadow 320ms ease;
 		will-change: transform;
 	}
 
-	.display .char.space {
+	.display :global(.char.space) {
 		width: 0.28em;
 	}
 
-	.display:hover .char {
+	.display:hover :global(.char) {
 		color: var(--ink-hi);
 	}
 
-	.display .char.hot {
+	.display :global(.char.hot) {
 		color: var(--accent);
 		text-shadow: 0 0 28px rgba(108, 210, 255, 0.5);
 	}
@@ -1377,16 +1403,40 @@ const verticalCount = 8;
 		color: var(--accent);
 	}
 
-	/* ========== REVEAL ON SCROLL ========== */
+	/* ========== REVEAL ON SCROLL — three-tier hierarchy ========== */
+	/* Tertiary tier (default for data-reveal) — minimal, fast, no blur.
+	   Stops the "uniform-fade-in-on-every-element" anti-pattern. */
 	[data-reveal] {
 		opacity: 0;
-		transform: translateY(28px);
-		transition: opacity 900ms cubic-bezier(0.2, 0.7, 0.2, 1), transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+		transform: translateY(8px);
+		transition: opacity 240ms ease-out, transform 240ms ease-out;
+	}
+
+	/* Secondary tier — section headings and lead paragraphs. Moderate motion + slight blur. */
+	[data-reveal][data-reveal-tier="secondary"],
+	.band-head[data-reveal],
+	.standfirst[data-reveal],
+	.contact-stage[data-reveal] {
+		transform: translateY(16px);
+		filter: blur(3px);
+		transition: opacity 500ms cubic-bezier(0.2, 0.7, 0.2, 1),
+			transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1),
+			filter 500ms ease-out;
+	}
+
+	/* Primary tier — explicit hero-class content. Full Jakub recipe. */
+	[data-reveal][data-reveal-tier="primary"] {
+		transform: translateY(24px);
+		filter: blur(6px);
+		transition: opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+			transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+			filter 700ms ease-out;
 	}
 
 	[data-reveal].in-view {
 		opacity: 1;
 		transform: none;
+		filter: blur(0);
 	}
 
 	/* ========== MOBILE TIGHTER SPACING (placed late so it overrides earlier rules) ========== */
@@ -1525,7 +1575,15 @@ const verticalCount = 8;
 		.standfirst .word {
 			opacity: 1;
 			transform: none;
+			filter: none;
 			transition: none;
+		}
+		.hero-stack,
+		.hero-ticker {
+			animation: none;
+			opacity: 1;
+			transform: none;
+			filter: none;
 		}
 		html {
 			scroll-behavior: auto;
@@ -1574,8 +1632,9 @@ const verticalCount = 8;
 	}
 
 	// ---------- Hero ticker — scroll-driven horizontal translate ----------
+	// Skip entirely if user prefers reduced motion — horizontal scroll-driven motion is a vestibular risk.
 	const tickerTrack = document.querySelector('.hero-ticker-track');
-	if (tickerTrack) {
+	if (tickerTrack && !reducedMotion) {
 		let tRaf = 0;
 		const TICKER_MULT = 0.35; // scroll multiplier — higher = faster ticker
 		const updateTicker = () => {
@@ -1611,39 +1670,7 @@ const verticalCount = 8;
 		reveals.forEach((el) => el.classList.add('in-view'));
 	}
 
-	// ---------- Hero mouse parallax ----------
-	const parallaxHost = document.querySelector('[data-parallax-host]');
-	const halo = document.querySelector('.hero-halo');
-	if (hero && hover && !reducedMotion) {
-		const depths = Array.from(parallaxHost.querySelectorAll('[data-depth]'));
-		depths.forEach((el) => el.style.setProperty('--depth', el.dataset.depth));
-
-		let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
-		const loop = () => {
-			cx += (tx - cx) * 0.07;
-			cy += (ty - cy) * 0.07;
-			hero.style.setProperty('--mx', cx.toFixed(3));
-			hero.style.setProperty('--my', cy.toFixed(3));
-			if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) {
-				raf = requestAnimationFrame(loop);
-			} else {
-				raf = 0;
-			}
-		};
-
-		hero.addEventListener('pointermove', (e) => {
-			const r = hero.getBoundingClientRect();
-			tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
-			ty = ((e.clientY - r.top) / r.height - 0.5) * 2;
-			if (!raf) raf = requestAnimationFrame(loop);
-		});
-
-		hero.addEventListener('pointerleave', () => {
-			tx = 0;
-			ty = 0;
-			if (!raf) raf = requestAnimationFrame(loop);
-		});
-	}
+	// Hero mouse parallax — disabled by request
 
 	// ---------- Interactive headings: split into chars + react to cursor ----------
 	const displays = document.querySelectorAll('.display');
