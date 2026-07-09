@@ -254,10 +254,18 @@ main {
 	border: 1px solid rgba(108, 210, 255, 0.4);
 	border-radius: 999px;
 	color: var(--accent) !important;
+	white-space: nowrap;
 }
 
 .nav-cta:hover {
 	background: rgba(108, 210, 255, 0.12);
+}
+
+@media (max-width: 480px) {
+	.nav-cta {
+		padding: 0.45rem 0.85rem;
+		font-size: 0.85rem;
+	}
 }
 
 .lang-switch {
