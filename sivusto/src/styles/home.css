@@ -302,7 +302,8 @@ main {
 }
 
 @media (max-width: 760px) {
-	.masthead nav a:not(.nav-cta) {
+	/* Hide only direct-child anchors (section links), keep .lang-switch descendants visible */
+	.masthead nav > a:not(.nav-cta) {
 		display: none;
 	}
 }
