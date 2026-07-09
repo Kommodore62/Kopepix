@@ -1,8 +1,15 @@
 ---
 import Analytics from '@vercel/analytics/astro';
+
+interface Props {
+	lang?: 'fi' | 'en';
+}
+
+const { lang = 'fi' } = Astro.props;
+const siteUrl = 'https://kopepix.vercel.app';
 ---
 <!doctype html>
-<html lang="fi">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -15,6 +22,9 @@ import Analytics from '@vercel/analytics/astro';
 			href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300..800&family=Inter:wght@900&family=Saira+Stencil+One&display=swap"
 			rel="stylesheet"
 		/>
+		<link rel="alternate" hreflang="fi" href={`${siteUrl}/`} />
+		<link rel="alternate" hreflang="en" href={`${siteUrl}/en/`} />
+		<link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
 		<title>Konsta Kivioja — Portfolio</title>
 	</head>
 	<body>
