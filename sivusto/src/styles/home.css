@@ -964,11 +964,7 @@ a.work:hover .work-cta {
 		display: contents;
 	}
 	.work-tag {
-		margin-bottom: 0;
-		font-size: 0.62rem;
-		color: var(--ink-low);
-		background: transparent;
-		padding: 0;
+		display: none;
 	}
 	.work h3,
 	.work p,
