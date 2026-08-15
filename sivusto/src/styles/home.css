@@ -938,6 +938,11 @@ a.work:hover .work-cta {
 	transition: color 240ms ease, gap 240ms ease;
 }
 
+/* Arrow icon stands out in accent blue even before hover, text stays neutral until hover/focus */
+.work-cta svg {
+	color: var(--accent);
+}
+
 a.work:hover .work-cta {
 	gap: 0.7rem;
 }
@@ -948,9 +953,23 @@ a.work:hover .work-cta {
 
 @media (max-width: 760px) {
 	.work {
-		grid-template-columns: 1fr;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
 		gap: 0.6rem;
 		padding: 1.6rem 0;
+	}
+	/* Unwrap .work-meta so work-tag can sit on the same line as N° 01, while h3/p/cta still break onto their own rows */
+	.work-meta {
+		display: contents;
+	}
+	.work-tag {
+		margin-bottom: 0;
+	}
+	.work h3,
+	.work p,
+	.work-cta {
+		flex-basis: 100%;
 	}
 	.work-cta {
 		padding-top: 0.4rem;
