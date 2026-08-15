@@ -172,6 +172,7 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	gap: 0.75rem;
 	padding: 1.2rem clamp(1.2rem, 4vw, 3rem);
 	background: var(--bg-1);
 	border-bottom: 1px solid var(--rule);
@@ -215,6 +216,10 @@ main {
 @media (max-width: 560px) {
 	.brand-name-suffix {
 		display: none;
+	}
+	.brand-name {
+		font-size: 0.7rem;
+		letter-spacing: 0.04em;
 	}
 }
 
