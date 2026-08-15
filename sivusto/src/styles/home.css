@@ -755,6 +755,11 @@ main {
 	border-bottom: 1px solid var(--rule);
 }
 
+/* A second col-label inside the same .col (e.g. Sertifikaatit -> Koulutus) needs top space to read as a new group */
+.entries + .col-label {
+	margin-top: 2.5rem;
+}
+
 .entries {
 	list-style: none;
 	padding: 0;
@@ -1181,6 +1186,10 @@ a.work:hover .work-cta {
 	.col-label {
 		margin-bottom: 0.75rem;
 		padding-bottom: 0.5rem;
+	}
+
+	.entries + .col-label {
+		margin-top: 1.5rem;
 	}
 
 	.two-col {
