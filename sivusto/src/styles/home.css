@@ -128,8 +128,8 @@ main {
 	margin: -140px 0 0 -140px;
 	background: radial-gradient(
 		circle,
-		rgba(125, 211, 252, 0.18) 0%,
-		rgba(56, 189, 248, 0.08) 30%,
+		rgba(125, 211, 252, 0.09) 0%,
+		rgba(56, 189, 248, 0.04) 30%,
 		transparent 70%
 	);
 	pointer-events: none;
@@ -794,6 +794,14 @@ main {
 	color: var(--ink-hi);
 	font-size: 1.02rem;
 	font-weight: 500;
+	text-decoration: none;
+}
+
+a.entry-role:hover,
+a.entry-role:focus-visible {
+	color: var(--accent);
+	text-decoration: underline;
+	outline: none;
 }
 
 .entry-org {
