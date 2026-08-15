@@ -965,6 +965,10 @@ a.work:hover .work-cta {
 	}
 	.work-tag {
 		margin-bottom: 0;
+		font-size: 0.62rem;
+		color: var(--ink-low);
+		background: transparent;
+		padding: 0;
 	}
 	.work h3,
 	.work p,
