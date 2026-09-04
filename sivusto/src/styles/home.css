@@ -126,9 +126,9 @@ main {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 280px;
-	height: 280px;
-	margin: -140px 0 0 -140px;
+	width: 112px;
+	height: 112px;
+	margin: -56px 0 0 -56px;
 	background: radial-gradient(
 		circle,
 		rgba(255, 159, 67, 0.09) 0%,
