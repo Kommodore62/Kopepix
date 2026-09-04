@@ -366,7 +366,8 @@ main {
 	flex-direction: column;
 	justify-content: flex-end;
 	align-items: center;
-	padding: 0 clamp(1.5rem, 4vw, 3rem) clamp(3rem, 4vw, 4rem);
+	--hero-pb: clamp(3rem, 4vw, 4rem);
+	padding: 0 clamp(1.5rem, 4vw, 3rem) var(--hero-pb);
 	overflow: hidden;
 	isolation: isolate;
 	--mx: 0;
@@ -378,7 +379,8 @@ main {
 		height: auto;
 		min-height: 0;
 		justify-content: flex-start;
-		padding: clamp(5.25rem, 18vw, 6rem) clamp(1rem, 4vw, 2rem) clamp(3rem, 6vw, 4rem);
+		--hero-pb: clamp(3rem, 6vw, 4rem);
+		padding: clamp(5.25rem, 18vw, 6rem) clamp(1rem, 4vw, 2rem) var(--hero-pb);
 	}
 }
 
@@ -558,9 +560,10 @@ main {
 
 .hero-ticker {
 	position: absolute;
-	bottom: 1.6rem;
 	left: 0;
 	right: 0;
+	bottom: 0;
+	height: var(--hero-pb);
 	display: flex;
 	align-items: center;
 	overflow: hidden;
