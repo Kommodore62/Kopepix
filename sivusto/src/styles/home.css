@@ -271,8 +271,9 @@ main {
 
 @media (max-width: 480px) {
 	.nav-cta {
-		padding: 0.45rem 0.85rem;
-		font-size: 0.85rem;
+		min-height: 30px !important;
+		padding: 0.25rem 0.65rem !important;
+		font-size: 0.62rem !important;
 	}
 }
 
@@ -560,6 +561,8 @@ main {
 	bottom: 1.6rem;
 	left: 0;
 	right: 0;
+	display: flex;
+	align-items: center;
 	overflow: hidden;
 	pointer-events: none;
 	mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
@@ -800,7 +803,7 @@ main {
 
 .entry-role {
 	display: block;
-	color: var(--accent);
+	color: var(--ink-hi);
 	font-size: 1.02rem;
 	font-weight: 500;
 	text-decoration: none;
@@ -1130,6 +1133,11 @@ a.work:hover .work-cta {
 	.standfirst {
 		font-size: 1.02rem;
 		line-height: 1.45;
+	}
+
+	.button {
+		padding: 0.75rem 1.3rem;
+		font-size: 0.85rem;
 	}
 
 	.hero-ticker-track {
