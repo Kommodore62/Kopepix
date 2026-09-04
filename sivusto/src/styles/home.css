@@ -47,7 +47,7 @@ body {
 
 body {
 	overflow-x: clip;
-	--side-rail: clamp(180px, 30vw, 500px);
+	--side-rail: clamp(150px, 24vw, 400px);
 	--vtext-thickness: clamp(4rem, 7vw, 7.5rem);
 	--rail-side-gap: calc((var(--side-rail) - var(--vtext-thickness)) / 2);
 }
@@ -774,7 +774,7 @@ main {
 	font-size: 1.05rem;
 	font-weight: 600;
 	letter-spacing: -0.005em;
-	color: var(--ink-hi);
+	color: var(--accent);
 	padding-bottom: 0.75rem;
 	border-bottom: 1px solid var(--rule);
 }
