@@ -25,6 +25,8 @@
 	/* Section rhythm: generous space between sections, tight space from divider to content */
 	--space-section: clamp(3rem, 8vw, 7.5rem);
 	--space-rule: clamp(1.5rem, 3vw, 2.5rem);
+	/* Gap between groups inside one section (Työkokemus / Koulutus / Sertifikaatit) when they stack */
+	--space-group: 2.75rem;
 	/* Fixed masthead height (~5.2rem) plus breathing room, for sticky section headings */
 	--sticky-top: 6.5rem;
 }
@@ -890,6 +892,51 @@ a.entry-role:focus-visible {
 @media (max-width: 880px) {
 	.two-col {
 		grid-template-columns: 1fr;
+		/* The three groups stack here, so priority has to come from space and weight, not position */
+		gap: var(--space-group);
+	}
+
+	.col-label {
+		margin-bottom: 0.5rem;
+		padding-bottom: 0.75rem;
+		border-bottom-color: var(--rule-strong);
+	}
+
+	.entries + .col-label {
+		margin-top: var(--space-group);
+	}
+
+	/* Rules between every row made every row look equally important; space does the grouping instead */
+	.entries > li {
+		padding: 0.85rem 0;
+		border-bottom: 0;
+	}
+
+	/* The hover nudge is a pointer affordance and sticks after a tap */
+	.entries > li:hover {
+		padding-left: 0;
+	}
+
+	.entry-role {
+		font-size: var(--fs-small);
+		font-weight: 500;
+		color: var(--ink-mid);
+	}
+
+	/* The one entry that matters most: Anfra, with the result */
+	.entry--lead {
+		padding-bottom: 1.5rem;
+	}
+
+	.entry--lead .entry-role {
+		font-size: var(--fs-body);
+		font-weight: 700;
+		color: var(--ink-hi);
+	}
+
+	.entries-more > summary {
+		padding: 0.85rem 0;
+		border-top: 1px dashed var(--rule);
 	}
 }
 
@@ -1151,30 +1198,12 @@ a.work:hover .work-cta {
 		-webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 3%, #000 97%, transparent 100%);
 	}
 
-	.entries > li,
-	.entries-more > summary {
-		padding: 0.7rem 0;
-	}
-
 	.chips {
 		gap: 0.4rem;
 	}
 
 	.chips li {
 		padding: 0.5rem 0.85rem;
-	}
-
-	.col-label {
-		margin-bottom: 0.75rem;
-		padding-bottom: 0.5rem;
-	}
-
-	.entries + .col-label {
-		margin-top: 1.5rem;
-	}
-
-	.two-col {
-		gap: 1.5rem;
 	}
 
 	.work {
