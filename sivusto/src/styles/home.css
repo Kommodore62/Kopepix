@@ -16,12 +16,16 @@
 	--font-sans: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
 	/* Hero fonts only — kept untouched by the site-wide font change */
 	--font-display: 'Inter', 'Segoe UI', system-ui, sans-serif;
-	/* Type scale: every non-hero text uses one of these four sizes */
+	/* Type scale, ratio 1.25 (major third) on a 16px body: 16 > 20 (+1 step) > 31.25 (+3 steps).
+	   Headings (--fs-sub, --fs-display) fluid down to a phone; small/label are utility sizes below the scale. */
 	--fs-label: 0.75rem;
 	--fs-small: 0.875rem;
 	--fs-body: 1rem;
-	--fs-display: clamp(1.3rem, 2.5vw, 2.25rem);
+	--fs-sub: clamp(1.0625rem, 0.96rem + 0.42vw, 1.25rem);
+	--fs-display: clamp(1.5rem, 1.3rem + 0.95vw, 1.953rem);
 	--label-tracking: 0.22em;
+	/* Larger caps need less tracking than the 12px labels */
+	--sub-tracking: 0.12em;
 	/* Section rhythm: generous space between sections, tight space from divider to content */
 	--space-section: clamp(3rem, 8vw, 7.5rem);
 	--space-rule: clamp(1.5rem, 3vw, 2.5rem);
@@ -720,13 +724,14 @@ main {
 	gap: clamp(2rem, 5vw, 5rem);
 }
 
+/* Subheading step (+1): group labels and project names. Contact labels are field labels and stay at body-small. */
 .col-label {
 	display: block;
 	margin: 0 0 1.25rem;
 	font-family: var(--font-sans);
-	font-size: var(--fs-label);
+	font-size: var(--fs-sub);
 	font-weight: 400;
-	letter-spacing: var(--label-tracking);
+	letter-spacing: var(--sub-tracking);
 	text-transform: uppercase;
 	color: var(--accent);
 	padding-bottom: 0.75rem;
@@ -966,14 +971,14 @@ a.work:hover .work-cta {
 	min-width: 0;
 }
 
-/* Project name uses the same orange label style as the group labels and contact labels */
+/* Project name: same subheading step and orange caps as the group labels */
 .work h3 {
 	margin: 0 0 0.6rem;
 	font-family: var(--font-sans);
-	font-size: var(--fs-label);
+	font-size: var(--fs-sub);
 	font-weight: 400;
-	line-height: 1.6;
-	letter-spacing: var(--label-tracking);
+	line-height: 1.35;
+	letter-spacing: var(--sub-tracking);
 	text-transform: uppercase;
 	color: var(--accent);
 }
@@ -1070,7 +1075,7 @@ a.work:hover .work-cta {
 	grid-column: 1;
 	grid-row: 1;
 	font-family: var(--font-sans);
-	font-size: var(--fs-label);
+	font-size: var(--fs-small);
 	letter-spacing: var(--label-tracking);
 	text-transform: uppercase;
 	color: var(--accent);
