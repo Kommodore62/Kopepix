@@ -911,10 +911,10 @@ a.entry-role:focus-visible {
 		padding-left: 0;
 	}
 
+	/* Every title is bold and white; size is the only thing that ranks them */
 	.entry-role {
 		font-size: var(--fs-small);
-		font-weight: 500;
-		color: var(--ink-mid);
+		font-weight: 700;
 	}
 
 	/* The one entry that matters most: Anfra, with the result */
@@ -924,8 +924,6 @@ a.entry-role:focus-visible {
 
 	.entry--lead .entry-role {
 		font-size: var(--fs-body);
-		font-weight: 700;
-		color: var(--ink-hi);
 	}
 
 	.entries-more > summary {
