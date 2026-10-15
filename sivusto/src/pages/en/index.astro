@@ -28,9 +28,9 @@ const tickerRepeats = [0, 1, 2, 3];
 		</a>
 		<nav>
 			<a href="#profile">About</a>
-			<a href="#skills">Skills</a>
-			<a href="#work">Work</a>
 			<a href="#experience">Experience</a>
+			<a href="#work">Work</a>
+			<a href="#skills">Skills</a>
 			<a href="#contact" class="nav-cta">Get in touch</a>
 			<div class="lang-switch" aria-label="Language">
 				<a href="/" hreflang="fi">FI</a>
@@ -83,8 +83,11 @@ const tickerRepeats = [0, 1, 2, 3];
 
 		<div class="post-hero">
 		<!-- ========== ABOUT ========== -->
-		<section id="profile" class="band band--standfirst" data-section="01" data-section-name="About">
-			<h2 class="display" data-reveal>About</h2>
+		<section id="profile" class="band band--standfirst">
+			<header class="band-head" data-reveal>
+				<h2 class="display">About</h2>
+			</header>
+			<div class="band-body">
 			<p class="standfirst" data-reveal data-reveal-tier="primary">
 				<span class="word">A</span> <span class="word">marketing</span> <span class="word">all-rounder.</span>
 				<span class="word">Plenty</span> <span class="word">of</span>
@@ -115,111 +118,12 @@ const tickerRepeats = [0, 1, 2, 3];
 				<a href="#work" class="button primary">View work</a>
 				<a href="#contact" class="button ghost">Get in touch</a>
 			</div>
-		</section>
-
-		<!-- ========== 03 — SKILLS ========== -->
-		<section id="skills" class="band band--split" data-section="03" data-section-name="Skills">
-			<header class="band-head" data-reveal>
-				<span class="band-num">03 / Skills</span>
-				<h2 class="display">What I do</h2>
-			</header>
-			<div class="band-body two-col">
-				<div class="col" data-reveal>
-					<h3 class="col-label">Marketing</h3>
-					<ul class="chips">
-						<li>Marketing leadership</li>
-						<li>AI in marketing</li>
-						<li>Website design and maintenance</li>
-						<li>Social media</li>
-						<li>Social media advertising</li>
-						<li>Video and photo editing</li>
-						<li>Graphic design</li>
-					</ul>
-				</div>
-				<div class="col" data-reveal>
-					<h3 class="col-label">Software</h3>
-					<ul class="chips">
-						<li>Photoshop</li>
-						<li>Lightroom</li>
-						<li>DaVinci Resolve</li>
-						<li>Canva</li>
-						<li>ChatGPT &amp; Gemini</li>
-						<li>Midjourney</li>
-						<li>Claude Code</li>
-					</ul>
-				</div>
 			</div>
 		</section>
 
-		<!-- ========== 04 — SELECTED WORK ========== -->
-		<section id="work" class="band band--work" data-section="04" data-section-name="Work">
+		<!-- ========== EXPERIENCE & EDUCATION ========== -->
+		<section id="experience" class="band band--split">
 			<header class="band-head" data-reveal>
-				<span class="band-num">04 / Selected work</span>
-				<h2 class="display">Recent <br class="br-mobile-only" />projects</h2>
-			</header>
-			<div class="work-list">
-				<a class="work" href="https://paljuvuokrausoulu.fi/" target="_blank" rel="noopener" data-reveal>
-					<div class="work-meta">
-						<h3>Website redesign</h3>
-						<p>Redesigning the paljuvuokrausoulu.fi website plus SEO and GEO optimization.</p>
-					</div>
-					<span class="work-cta">
-						Open site
-						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-							<path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
-						</svg>
-					</span>
-				</a>
-				<a class="work" href="https://www.youtube.com/@KDFloorball" target="_blank" rel="noopener" data-reveal>
-					<div class="work-meta">
-						<h3>Aftermovies for floorball national teams</h3>
-						<p>Tournament and match aftermovie edits for a YouTube channel. Plus around 1,000 goal highlight reels edited.</p>
-					</div>
-					<span class="work-cta">
-						Open channel
-						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-							<path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
-						</svg>
-					</span>
-				</a>
-				<a class="work" href="https://youtu.be/rQkSkqKakRA?feature=shared" target="_blank" rel="noopener" data-reveal>
-					<div class="work-meta">
-						<h3>Employee career story production</h3>
-						<p>Script, filming, and editing.</p>
-					</div>
-					<span class="work-cta">
-						Watch video
-						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-							<path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
-						</svg>
-					</span>
-				</a>
-				<a class="work" href="https://anfra-aidat.fi/" target="_blank" rel="noopener" data-reveal>
-					<div class="work-meta">
-						<h3>Anfra fences brand and website</h3>
-						<p>Anfra fences brand, website, and advertising built from scratch.</p>
-					</div>
-					<span class="work-cta">
-						Open site
-						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-							<path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
-						</svg>
-					</span>
-				</a>
-				<div class="work" data-reveal>
-					<div class="work-meta">
-						<h3>This site, coded with Claude Code</h3>
-						<p>Portfolio site built with Astro and coded entirely using Claude.</p>
-					</div>
-					<span class="work-cta inert">You're on it</span>
-				</div>
-			</div>
-		</section>
-
-		<!-- ========== 04 — EXPERIENCE & EDUCATION ========== -->
-		<section id="experience" class="band band--split" data-section="04" data-section-name="Experience">
-			<header class="band-head" data-reveal>
-				<span class="band-num">04 / Experience</span>
 				<h2 class="display">Career <br class="br-mobile-only" />and education</h2>
 			</header>
 			<div class="band-body two-col">
@@ -298,11 +202,109 @@ const tickerRepeats = [0, 1, 2, 3];
 			</div>
 		</section>
 
-		<!-- ========== 05 — CONTACT ========== -->
-		<section id="contact" class="band band--contact" data-section="05" data-section-name="Contact">
-			<div class="contact-stage" data-reveal>
-				<span class="band-num">05 / Contact</span>
-				<h2 class="display contact-display">Contact information</h2>
+		<!-- ========== SELECTED WORK ========== -->
+		<section id="work" class="band band--work">
+			<header class="band-head" data-reveal>
+				<h2 class="display">Recent <br class="br-mobile-only" />projects</h2>
+			</header>
+			<div class="band-body work-list">
+				<a class="work" href="https://paljuvuokrausoulu.fi/" target="_blank" rel="noopener" data-reveal>
+					<div class="work-meta">
+						<h3>Website redesign</h3>
+						<p>Redesigning the paljuvuokrausoulu.fi website plus SEO and GEO optimization.</p>
+					</div>
+					<span class="work-cta">
+						Open site
+						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+							<path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+						</svg>
+					</span>
+				</a>
+				<a class="work" href="https://www.youtube.com/@KDFloorball" target="_blank" rel="noopener" data-reveal>
+					<div class="work-meta">
+						<h3>Aftermovies for floorball national teams</h3>
+						<p>Tournament and match aftermovie edits for a YouTube channel. Plus around 1,000 goal highlight reels edited.</p>
+					</div>
+					<span class="work-cta">
+						Open channel
+						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+							<path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+						</svg>
+					</span>
+				</a>
+				<a class="work" href="https://youtu.be/rQkSkqKakRA?feature=shared" target="_blank" rel="noopener" data-reveal>
+					<div class="work-meta">
+						<h3>Employee career story production</h3>
+						<p>Script, filming, and editing.</p>
+					</div>
+					<span class="work-cta">
+						Watch video
+						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+							<path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+						</svg>
+					</span>
+				</a>
+				<a class="work" href="https://anfra-aidat.fi/" target="_blank" rel="noopener" data-reveal>
+					<div class="work-meta">
+						<h3>Anfra fences brand and website</h3>
+						<p>Anfra fences brand, website, and advertising built from scratch.</p>
+					</div>
+					<span class="work-cta">
+						Open site
+						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+							<path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+						</svg>
+					</span>
+				</a>
+				<div class="work" data-reveal>
+					<div class="work-meta">
+						<h3>This site, coded with Claude Code</h3>
+						<p>Portfolio site built with Astro and coded entirely using Claude.</p>
+					</div>
+					<span class="work-cta inert">You're on it</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- ========== SKILLS ========== -->
+		<section id="skills" class="band band--split">
+			<header class="band-head" data-reveal>
+				<h2 class="display">What I do</h2>
+			</header>
+			<div class="band-body two-col">
+				<div class="col" data-reveal>
+					<h3 class="col-label">Marketing</h3>
+					<ul class="chips">
+						<li>Marketing leadership</li>
+						<li>AI in marketing</li>
+						<li>Website design and maintenance</li>
+						<li>Social media</li>
+						<li>Social media advertising</li>
+						<li>Video and photo editing</li>
+						<li>Graphic design</li>
+					</ul>
+				</div>
+				<div class="col" data-reveal>
+					<h3 class="col-label">Software</h3>
+					<ul class="chips">
+						<li>Photoshop</li>
+						<li>Lightroom</li>
+						<li>DaVinci Resolve</li>
+						<li>Canva</li>
+						<li>ChatGPT &amp; Gemini</li>
+						<li>Midjourney</li>
+						<li>Claude Code</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- ========== CONTACT ========== -->
+		<section id="contact" class="band band--contact">
+			<header class="band-head" data-reveal>
+				<h2 class="display">Contact information</h2>
+			</header>
+			<div class="band-body" data-reveal>
 				<p class="contact-lead">
 					Whatever kind of marketing project you have in mind, feel free to reach out.
 				</p>
@@ -404,23 +406,29 @@ const tickerRepeats = [0, 1, 2, 3];
 	// ---------- Interactive headings: split into chars + react to cursor ----------
 	const displays = document.querySelectorAll('.display');
 	displays.forEach((el) => {
+		// Walk text nodes: each word becomes a nowrap group of per-letter spans, so lines break only between words
 		const wrap = (node) => {
 			if (node.nodeType === 3) {
 				const frag = document.createDocumentFragment();
-				const text = node.nodeValue;
-				for (const ch of text) {
-					const span = document.createElement('span');
-					if (ch === ' ' || ch === ' ') {
-						span.className = 'char space';
-						span.innerHTML = '&nbsp;';
-					} else if (ch === '­') {
-						span.className = 'char';
-						span.textContent = '­';
-					} else {
-						span.className = 'char';
-						span.textContent = ch;
+				let word = null;
+				for (const ch of node.nodeValue) {
+					if (/\s/.test(ch)) {
+						word = null;
+						const space = document.createElement('span');
+						space.className = 'char space';
+						space.innerHTML = '&nbsp;';
+						frag.appendChild(space);
+						continue;
 					}
-					frag.appendChild(span);
+					if (!word) {
+						word = document.createElement('span');
+						word.className = 'char-word';
+						frag.appendChild(word);
+					}
+					const span = document.createElement('span');
+					span.className = 'char';
+					span.textContent = ch;
+					word.appendChild(span);
 				}
 				node.parentNode.replaceChild(frag, node);
 			} else if (node.nodeType === 1 && node.tagName !== 'BR') {

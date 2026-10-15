@@ -11,6 +11,8 @@
 	--accent: #FF6E42;
 	--accent-soft: #FF9F43;
 	--rule: rgba(255, 255, 255, 0.08);
+	/* Section dividers sit one step above the row rules inside sections */
+	--rule-strong: rgba(255, 255, 255, 0.16);
 	--font-sans: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
 	/* Hero fonts only — kept untouched by the site-wide font change */
 	--font-display: 'Inter', 'Segoe UI', system-ui, sans-serif;
@@ -20,6 +22,11 @@
 	--fs-body: 1rem;
 	--fs-display: clamp(1.3rem, 2.5vw, 2.25rem);
 	--label-tracking: 0.22em;
+	/* Section rhythm: generous space between sections, tight space from divider to content */
+	--space-section: clamp(3rem, 8vw, 7.5rem);
+	--space-rule: clamp(1.5rem, 3vw, 2.5rem);
+	/* Fixed masthead height (~5.2rem) plus breathing room, for sticky section headings */
+	--sticky-top: 6.5rem;
 }
 
 *,
@@ -79,6 +86,7 @@ body::after {
 
 .post-hero {
 	position: relative;
+	padding-top: clamp(2.5rem, 6vw, 5rem);
 }
 
 ::selection {
@@ -535,25 +543,35 @@ main {
 	color: var(--ink-faint);
 }
 
+/* Sections read like a printed CV: divider on top, heading in the left column, content on the right */
 .band {
 	position: relative;
 	max-width: 1120px;
 	margin: 0 auto;
-	padding: clamp(4rem, 9vw, 7.5rem) clamp(1.5rem, 4vw, 3rem) clamp(3rem, 6vw, 5rem);
+	padding: 0 clamp(1.5rem, 4vw, 3rem) var(--space-section);
+	display: grid;
+	grid-template-columns: minmax(15rem, 1fr) minmax(0, 2.75fr);
+	column-gap: clamp(2rem, 4vw, 4rem);
+	row-gap: var(--space-rule);
+	align-items: start;
 }
 
-.band + .band {
-	padding-top: 0;
+.band::before {
+	content: '';
+	grid-column: 1 / -1;
+	height: 1px;
+	background: var(--rule-strong);
 }
 
-.band--standfirst {
-	text-align: left;
-	padding-top: clamp(2rem, 5vw, 4rem);
-	padding-bottom: clamp(6rem, 11vw, 10rem);
+.band-body {
+	min-width: 0;
+}
+
+.band--standfirst .band-body {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 2.5rem;
+	gap: 2rem;
 }
 
 .standfirst {
@@ -590,12 +608,17 @@ main {
 }
 
 .band-head {
-	display: block;
-	margin-bottom: 2.8rem;
+	position: sticky;
+	top: var(--sticky-top);
 }
 
-.band-num {
-	display: none;
+@media (max-width: 900px) {
+	.band {
+		grid-template-columns: minmax(0, 1fr);
+	}
+	.band-head {
+		position: static;
+	}
 }
 
 /* Forced two-line breaks in section headings collapse to one line on desktop */
@@ -632,6 +655,12 @@ main {
 	width: 0.28em;
 }
 
+/* Keeps a word's letters together; without it the browser may wrap between any two letter spans */
+.display .char-word {
+	display: inline-block;
+	white-space: nowrap;
+}
+
 .display:hover .char {
 	color: var(--ink-hi);
 }
@@ -639,12 +668,6 @@ main {
 .display .char.hot {
 	color: var(--accent);
 	text-shadow: 0 0 28px rgba(255, 110, 66, 0.5);
-}
-
-@media (max-width: 720px) {
-	.band-head {
-		margin-bottom: 2rem;
-	}
 }
 
 .button {
@@ -843,20 +866,20 @@ a.entry-role:focus-visible {
 	gap: 0.55rem;
 }
 
+/* Outline only: skills are self-reported, so they stay lighter than the proof in Kokemus and Työt */
 .chips li {
-	padding: 0.7rem 1rem;
+	padding: 0.55rem 0.95rem;
 	border-radius: 999px;
-	background: var(--panel);
-	border: 1px solid var(--rule);
+	background: transparent;
+	border: 1px solid var(--panel);
 	color: var(--ink-mid);
 	font-size: var(--fs-small);
-	transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+	transition: color 200ms ease, border-color 200ms ease;
 }
 
 .chips li:hover {
-	background: rgba(255, 110, 66, 0.16);
 	color: var(--ink-hi);
-	border-color: rgba(255, 110, 66, 0.4);
+	border-color: rgba(255, 110, 66, 0.5);
 }
 
 @media (max-width: 880px) {
@@ -868,7 +891,11 @@ a.entry-role:focus-visible {
 .work-list {
 	display: flex;
 	flex-direction: column;
-	border-top: 1px solid var(--rule);
+}
+
+/* The section divider replaces the list's top border; first row aligns with the heading */
+.work-list > .work:first-child {
+	padding-top: 0;
 }
 
 .work {
@@ -952,39 +979,27 @@ a.work:hover .work-cta {
 	padding-bottom: 3rem;
 }
 
-.contact-stage {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	text-align: left;
-	padding: 2rem 0;
-}
-
-/* Size, weight and tracking come from .display (the element carries both classes) */
-.contact-display {
-	margin: 0.8rem 0 0;
-}
-
 .contact-lead {
-	margin: 1.5rem 0 3rem;
+	margin: 0 0 2rem;
 	font-size: var(--fs-body);
 	line-height: 1.55;
 	color: var(--ink-mid);
 	max-width: 50ch;
 }
 
+/* One stacked column inside the right grid column: a three-up row is too narrow for the email address */
 .contact-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-	gap: 1rem;
-	width: 100%;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 0.75rem;
+	max-width: 34rem;
 }
 
 .contact-card {
 	display: grid;
 	grid-template-columns: 1fr auto;
 	grid-template-rows: auto auto;
-	padding: 1.75rem 1.85rem;
+	padding: 1.15rem 1.4rem;
 	border-radius: 22px;
 	background: transparent;
 	border: 1px solid var(--rule);
@@ -1034,14 +1049,9 @@ a.work:hover .work-cta {
 	transition: transform 240ms ease, color 240ms ease;
 }
 
-@media (max-width: 720px) {
-	.contact-grid {
-		grid-template-columns: 1fr;
-	}
-}
-
 .colophon {
-	margin: 5rem 0 0;
+	grid-column: 1 / -1;
+	margin: clamp(2rem, 5vw, 4rem) 0 0;
 	padding: 2rem 0;
 	border-top: 1px solid var(--rule);
 	display: flex;
@@ -1082,8 +1092,7 @@ a.work:hover .work-cta {
 
 [data-reveal][data-reveal-tier="secondary"],
 .band-head[data-reveal],
-.standfirst[data-reveal],
-.contact-stage[data-reveal] {
+.standfirst[data-reveal] {
 	transform: translateY(16px);
 	filter: blur(3px);
 	transition: opacity 500ms cubic-bezier(0.2, 0.7, 0.2, 1),
@@ -1107,17 +1116,11 @@ a.work:hover .work-cta {
 
 @media (max-width: 760px) {
 	.band {
-		padding: 1rem clamp(1rem, 4vw, 1.5rem) 0.75rem;
+		padding: 0 clamp(1rem, 4vw, 1.5rem) var(--space-section);
 	}
 
-	.band + .band {
-		padding-top: 2.5rem;
-	}
-
-	.band--standfirst {
-		padding-top: 1rem;
-		padding-bottom: 1.5rem;
-		gap: 1rem;
+	.band--standfirst .band-body {
+		gap: 1.25rem;
 	}
 
 	.standfirst {
@@ -1141,10 +1144,6 @@ a.work:hover .work-cta {
 	.hero-ticker {
 		mask-image: linear-gradient(90deg, transparent 0%, #000 3%, #000 97%, transparent 100%);
 		-webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 3%, #000 97%, transparent 100%);
-	}
-
-	.band-head {
-		margin-bottom: 1rem;
 	}
 
 	.entries > li,
@@ -1185,16 +1184,11 @@ a.work:hover .work-cta {
 		padding: 1.1rem 1.2rem;
 	}
 
-	.contact-stage {
-		padding: 0.5rem 0;
-	}
-
 	.contact-lead {
-		margin: 0.75rem 0 1.5rem;
+		margin: 0 0 1.5rem;
 	}
 
 	.colophon {
-		margin-top: 2rem;
 		padding: 1.25rem 0;
 	}
 }
