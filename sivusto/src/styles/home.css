@@ -16,16 +16,17 @@
 	--font-sans: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
 	/* Hero fonts only — kept untouched by the site-wide font change */
 	--font-display: 'Inter', 'Segoe UI', system-ui, sans-serif;
-	/* Type scale, ratio 1.25 (major third) on a 16px body: 16 > 20 (+1 step) > 31.25 (+3 steps).
-	   Headings (--fs-sub, --fs-display) fluid down to a phone; small/label are utility sizes below the scale. */
+	/* Type scale: h2 31.25 (+3 steps of 1.25 on a 16px body), sub 17 / 15 on phones, body 16.
+	   --fs-sub is below the +1 step (20) on purpose: it is set in orange caps, and caps read about 1.4x
+	   larger than lowercase at the same size, so 20px caps looked nearly as big as the h2. */
 	--fs-label: 0.75rem;
 	--fs-small: 0.875rem;
 	--fs-body: 1rem;
-	--fs-sub: clamp(1.0625rem, 0.96rem + 0.42vw, 1.25rem);
+	--fs-sub: clamp(0.9375rem, 0.869rem + 0.28vw, 1.0625rem);
 	--fs-display: clamp(1.5rem, 1.3rem + 0.95vw, 1.953rem);
 	--label-tracking: 0.22em;
-	/* Larger caps need less tracking than the 12px labels */
-	--sub-tracking: 0.12em;
+	/* Caps at this size need less tracking than the 12px labels */
+	--sub-tracking: 0.1em;
 	/* Section rhythm: generous space between sections, tight space from divider to content */
 	--space-section: clamp(3rem, 8vw, 7.5rem);
 	--space-rule: clamp(1.5rem, 3vw, 2.5rem);
@@ -724,7 +725,7 @@ main {
 	gap: clamp(2rem, 5vw, 5rem);
 }
 
-/* Subheading step (+1): group labels and project names. Contact labels are field labels and stay at body-small. */
+/* Subheadings: group labels and project names. Contact labels are field labels and stay at body-small. */
 .col-label {
 	display: block;
 	margin: 0 0 1.25rem;
