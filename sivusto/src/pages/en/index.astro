@@ -15,9 +15,6 @@ const tickerTags = [
 	'Marketing leadership',
 ];
 const tickerRepeats = [0, 1, 2, 3];
-
-// Vertical KOPEPIX side-mark — alternating solid + outline copies
-const verticalCount = 8;
 ---
 
 <Layout lang="en">
@@ -85,12 +82,6 @@ const verticalCount = 8;
 		</section>
 
 		<div class="post-hero">
-			<aside class="vertical-mark" aria-hidden="true">
-				{Array.from({ length: verticalCount }).map((_, i) => (
-					<span class={`vertical-text ${i % 2 === 0 ? 'vertical-text--solid' : 'vertical-text--outline'}`}>KOPEPIX</span>
-				))}
-			</aside>
-
 		<!-- ========== ABOUT ========== -->
 		<section id="profile" class="band band--standfirst" data-section="01" data-section-name="About">
 			<h2 class="display" data-reveal>About</h2>
@@ -114,18 +105,11 @@ const verticalCount = 8;
 				<span class="word">subsidiary</span> <span class="word">brand</span>
 				<span class="word">successfully</span> <span class="word">with</span>
 				<span class="word">limited</span> <span class="word">resources.</span>
-				<span class="word">On</span> <span class="word">AI,</span>
-				<span class="word">I</span> <span class="word">know</span>
-				<span class="word">the</span> <span class="word">current</span>
-				<span class="word">possibilities</span> <span class="word">well</span>
-				<span class="word">and</span> <span class="word">have</span>
-				<span class="word">tested</span> <span class="word">dozens</span>
-				<span class="word">of</span> <span class="word">AI</span>
-				<span class="word">tools.</span> <span class="word">I</span>
-				<span class="word">offer</span> <span class="word">marketing</span>
-				<span class="word">services</span> <span class="word">under</span>
-				<span class="word">the</span> <span class="word">name</span>
-				<span class="word">KopePix.</span>
+				<span class="word">I</span> <span class="word">use</span>
+				<span class="word">Claude,</span> <span class="word">Midjourney</span>
+				<span class="word">and</span> <span class="word">ChatGPT</span>
+				<span class="word">daily</span> <span class="word">in</span>
+				<span class="word">content</span> <span class="word">production.</span>
 			</p>
 			<div class="standfirst-actions">
 				<a href="#work" class="button primary">View work</a>
@@ -150,7 +134,6 @@ const verticalCount = 8;
 						<li>Social media advertising</li>
 						<li>Video and photo editing</li>
 						<li>Graphic design</li>
-						<li>And a lot more</li>
 					</ul>
 				</div>
 				<div class="col" data-reveal>
@@ -225,13 +208,6 @@ const verticalCount = 8;
 				</a>
 				<div class="work" data-reveal>
 					<div class="work-meta">
-						<h3>AI-generated brand image library</h3>
-						<p>A brand image library created with Midjourney, a recognizable style without the cost of a photo shoot.</p>
-					</div>
-					<span class="work-cta inert">Case study coming</span>
-				</div>
-				<div class="work" data-reveal>
-					<div class="work-meta">
 						<h3>This site, coded with Claude Code</h3>
 						<p>Portfolio site built with Astro and coded entirely using Claude.</p>
 					</div>
@@ -253,28 +229,43 @@ const verticalCount = 8;
 						<li>
 							<span class="entry-role">Marketing Manager</span>
 							<span class="entry-org">Anfra Oy · 10/2022 – 2/2026</span>
+							<ul class="entry-points">
+								<li>Ran the company's entire marketing on my own, from strategy to execution</li>
+								<li>Company revenue grew from <strong>€38M to €80M</strong> during my tenure</li>
+								<li>Led the company's name change</li>
+								<li>Built the brand for a new secondary trade name from scratch</li>
+							</ul>
 						</li>
 						<li>
-							<span class="entry-role">Warehouse Worker</span>
-							<span class="entry-org">Pro Nutrition Finland Oy · 8/2021 – 5/2022</span>
-						</li>
-						<li>
-							<span class="entry-role">Sales</span>
+							<span class="entry-role">Sales Representative</span>
 							<span class="entry-org">Lämpöykkönen Oy · 2/2020 – 8/2020</span>
+							<p class="entry-desc">Sales of air-source heat pumps and maintenance services</p>
 						</li>
 						<li>
-							<span class="entry-role">Newspaper Distributor</span>
-							<span class="entry-org">Kaleva · 11/2018 – 2/2020</span>
-						</li>
-						<li>
-							<span class="entry-role">Flue Coater · Sales</span>
+							<span class="entry-role">Sales Representative / Chimney Relining</span>
 							<span class="entry-org">Fixi Oy · 8/2017 – 10/2018</span>
-						</li>
-						<li>
-							<span class="entry-role">Telemarketer</span>
-							<span class="entry-org">Pisaron Oy</span>
+							<p class="entry-desc">Door-to-door appointment setting and sales, chimney flue relining</p>
 						</li>
 					</ol>
+					<details class="entries-more">
+						<summary>Other work experience</summary>
+						<ol class="entries">
+							<li>
+								<span class="entry-role">Warehouse Worker</span>
+								<span class="entry-org">Pro Nutrition Finland Oy · 8/2021 – 5/2022</span>
+								<p class="entry-desc">Order picking and packing, warehouse upkeep</p>
+							</li>
+							<li>
+								<span class="entry-role">Delivery Worker</span>
+								<span class="entry-org">Kaleva · 11/2018 – 2/2020</span>
+								<p class="entry-desc">Delivery of advertising flyers and letters</p>
+							</li>
+							<li>
+								<span class="entry-role">Telemarketer</span>
+								<span class="entry-org">Pisaron Oy</span>
+							</li>
+						</ol>
+					</details>
 				</div>
 				<div class="col" data-reveal>
 					<h3 class="col-label">Education</h3>
@@ -326,11 +317,16 @@ const verticalCount = 8;
 						<strong>+358 40 140 9823</strong>
 						<span class="contact-arrow" aria-hidden="true">→</span>
 					</a>
+					<a class="contact-card" href="https://www.linkedin.com/in/konsta-kivioja-876459240/" target="_blank" rel="noopener">
+						<span class="contact-label">LinkedIn</span>
+						<strong>Konsta Kivioja</strong>
+						<span class="contact-arrow" aria-hidden="true">→</span>
+					</a>
 				</div>
 			</div>
 
 			<footer class="colophon">
-				<span>© 2026 Konsta Kivioja · Kopepix</span>
+				<span>© 2026 Konsta Kivioja</span>
 				<a href="#top">Back to top ↑</a>
 				<a class="license-link" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
 			</footer>

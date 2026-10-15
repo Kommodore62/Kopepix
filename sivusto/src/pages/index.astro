@@ -15,9 +15,6 @@ const tickerTags = [
 	'Markkinoinnin johtaminen',
 ];
 const tickerRepeats = [0, 1, 2, 3];
-
-// Vertical KOPEPIX side-mark — alternating solid + outline copies
-const verticalCount = 8;
 ---
 
 <Layout lang="fi">
@@ -85,12 +82,6 @@ const verticalCount = 8;
 		</section>
 
 		<div class="post-hero">
-			<aside class="vertical-mark" aria-hidden="true">
-				{Array.from({ length: verticalCount }).map((_, i) => (
-					<span class={`vertical-text ${i % 2 === 0 ? 'vertical-text--solid' : 'vertical-text--outline'}`}>KOPEPIX</span>
-				))}
-			</aside>
-
 		<!-- ========== PROFIILI ========== -->
 		<section id="profile" class="band band--standfirst" data-section="01" data-section-name="Profiili">
 			<h2 class="display" data-reveal>Profiili</h2>
@@ -108,16 +99,11 @@ const verticalCount = 8;
 				<span class="word">ja</span> <span class="word">sen</span>
 				<span class="word">aputoiminimen</span> <span class="word">markkinointia</span>
 				<span class="word">menestyksekkäästi</span> <span class="word">vähillä</span>
-				<span class="word">resursseilla.</span> <span class="word">Tekoälyn</span>
-				<span class="word">osalta</span> <span class="word">olen</span>
-				<span class="word">hyvin</span> <span class="word">perillä</span>
-				<span class="word">tämän</span> <span class="word">hetken</span>
-				<span class="word">mahdollisuuksista</span> <span class="word">ja</span>
-				<span class="word">olen</span> <span class="word">kokeillut</span>
-				<span class="word">kymmeniä</span> <span class="word">eri</span>
-				<span class="word">tekoälytyökaluja.</span> <span class="word">Tarjoan</span>
-				<span class="word">markkinointipalveluja</span> <span class="word">nimellä</span>
-				<span class="word">KopePix.</span>
+				<span class="word">resursseilla.</span> <span class="word">Käytän</span>
+				<span class="word">päivittäin</span> <span class="word">Claudea,</span>
+				<span class="word">Midjourneyta</span> <span class="word">ja</span>
+				<span class="word">ChatGPT:tä</span>
+				<span class="word">sisällöntuotannossa.</span>
 			</p>
 			<div class="standfirst-actions">
 				<a href="#work" class="button primary">Katso työt</a>
@@ -142,7 +128,6 @@ const verticalCount = 8;
 						<li>Somemainonta</li>
 						<li>Video- ja kuvaeditointi</li>
 						<li>Graafinen suunnittelu</li>
-						<li>Ja paljon muuta</li>
 					</ul>
 				</div>
 				<div class="col" data-reveal>
@@ -217,13 +202,6 @@ const verticalCount = 8;
 				</a>
 				<div class="work" data-reveal>
 					<div class="work-meta">
-						<h3>Brändikuvapankki tekoälyllä</h3>
-						<p>Brändikuvapankin luonti Midjourneyn avulla — tunnistettava jälki ilman kuvauspäivän kuluja.</p>
-					</div>
-					<span class="work-cta inert">Case study tulossa</span>
-				</div>
-				<div class="work" data-reveal>
-					<div class="work-meta">
 						<h3>Tämä sivusto, koodattu Claude Codella</h3>
 						<p>Portfolio-sivusto on rakennettu Astrolla ja koodattu kokonaan Claudea käyttäen.</p>
 					</div>
@@ -245,28 +223,43 @@ const verticalCount = 8;
 						<li>
 							<span class="entry-role">Markkinointipäällikkö</span>
 							<span class="entry-org">Anfra Oy · 10/2022 – 2/2026</span>
-						</li>
-						<li>
-							<span class="entry-role">Varastotyöntekijä</span>
-							<span class="entry-org">Pro Nutrition Finland Oy · 8/2021 – 5/2022</span>
+							<ul class="entry-points">
+								<li>Vastasin yksin koko yrityksen markkinoinnista strategiasta toteutukseen</li>
+								<li>Yrityksen liikevaihto kasvoi kaudellani <strong>38 M€:sta 80 M€:oon</strong></li>
+								<li>Vein läpi yrityksen nimenmuutoksen</li>
+								<li>Rakensin uuden aputoiminimen brändin tyhjästä</li>
+							</ul>
 						</li>
 						<li>
 							<span class="entry-role">Myyjä</span>
 							<span class="entry-org">Lämpöykkönen Oy · 2/2020 – 8/2020</span>
+							<p class="entry-desc">Ilmalämpöpumppujen ja huoltopalveluiden myynti</p>
 						</li>
 						<li>
-							<span class="entry-role">Jakaja</span>
-							<span class="entry-org">Kaleva · 11/2018 – 2/2020</span>
-						</li>
-						<li>
-							<span class="entry-role">Savuhormien pinnoittaja · myyjä</span>
+							<span class="entry-role">Myyjä / Savuhormien pinnoittaja</span>
 							<span class="entry-org">Fixi Oy · 8/2017 – 10/2018</span>
-						</li>
-						<li>
-							<span class="entry-role">Puhelinbuukkari</span>
-							<span class="entry-org">Pisaron Oy</span>
+							<p class="entry-desc">Ajanvaraus ja myynti ovelta ovelle sekä savuhormien pinnoitus</p>
 						</li>
 					</ol>
+					<details class="entries-more">
+						<summary>Muu työkokemus</summary>
+						<ol class="entries">
+							<li>
+								<span class="entry-role">Varastotyöntekijä</span>
+								<span class="entry-org">Pro Nutrition Finland Oy · 8/2021 – 5/2022</span>
+								<p class="entry-desc">Tilausten keräily ja pakkaaminen, varaston ylläpito</p>
+							</li>
+							<li>
+								<span class="entry-role">Jakaja</span>
+								<span class="entry-org">Kaleva · 11/2018 – 2/2020</span>
+								<p class="entry-desc">Mainosten ja kirjeiden jako</p>
+							</li>
+							<li>
+								<span class="entry-role">Puhelinbuukkari</span>
+								<span class="entry-org">Pisaron Oy</span>
+							</li>
+						</ol>
+					</details>
 				</div>
 				<div class="col" data-reveal>
 					<h3 class="col-label">Koulutus</h3>
@@ -318,11 +311,16 @@ const verticalCount = 8;
 						<strong>040 140 9823</strong>
 						<span class="contact-arrow" aria-hidden="true">→</span>
 					</a>
+					<a class="contact-card" href="https://www.linkedin.com/in/konsta-kivioja-876459240/" target="_blank" rel="noopener">
+						<span class="contact-label">LinkedIn</span>
+						<strong>Konsta Kivioja</strong>
+						<span class="contact-arrow" aria-hidden="true">→</span>
+					</a>
 				</div>
 			</div>
 
 			<footer class="colophon">
-				<span>© 2026 Konsta Kivioja · Kopepix</span>
+				<span>© 2026 Konsta Kivioja</span>
 				<a href="#top">Takaisin ylös ↑</a>
 				<a class="license-link" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>
 			</footer>
@@ -360,7 +358,6 @@ const verticalCount = 8;
 		w.style.setProperty('--i', i);
 	});
 
-	// (Old --hero-bottom JS removed — vertical-mark is now inside .post-hero, no measurement needed)
 
 	// ---------- Hero ticker — scroll-driven horizontal translate ----------
 	// Skip entirely if user prefers reduced motion — horizontal scroll-driven motion is a vestibular risk.
