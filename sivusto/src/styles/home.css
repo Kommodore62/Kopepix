@@ -563,6 +563,11 @@ main {
 	background: var(--rule-strong);
 }
 
+/* The hero already closes above Profiili, so the first section needs no divider */
+.band--standfirst::before {
+	content: none;
+}
+
 .band-body {
 	min-width: 0;
 }
