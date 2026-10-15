@@ -14,12 +14,11 @@
 	--font-sans: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
 	/* Hero fonts only — kept untouched by the site-wide font change */
 	--font-display: 'Inter', 'Segoe UI', system-ui, sans-serif;
-	/* Type scale: every non-hero text uses one of these five sizes */
+	/* Type scale: every non-hero text uses one of these four sizes */
 	--fs-label: 0.75rem;
 	--fs-small: 0.875rem;
 	--fs-body: 1rem;
-	--fs-title: clamp(1rem, 1.6vw, 1.375rem);
-	--fs-display: clamp(1.3rem, 3.5vw, 3rem);
+	--fs-display: clamp(1.3rem, 2.5vw, 2.25rem);
 	--label-tracking: 0.22em;
 }
 
@@ -304,11 +303,12 @@ main {
 	justify-content: flex-end;
 	align-items: center;
 	--hero-pb: clamp(3rem, 4vw, 4rem);
+	/* One size drives both hero lines and the photo. Cap 8.01rem: KONSTA KIVIOJA renders at 7.99× its font size,
+	   so the line stops at the 1024px content column (1120px band minus 2×3rem padding). */
+	--hero-fs: clamp(1.7rem, min(8.9vw, 15.5vh), 8.01rem);
 	padding: 0 clamp(1.5rem, 4vw, 3rem) var(--hero-pb);
 	overflow: hidden;
 	isolation: isolate;
-	--mx: 0;
-	--my: 0;
 }
 
 @media (max-width: 760px) {
@@ -317,6 +317,7 @@ main {
 		min-height: 0;
 		justify-content: flex-start;
 		--hero-pb: clamp(3rem, 6vw, 4rem);
+		--hero-fs: clamp(2rem, min(10.48vw, 18vh), 10.5rem);
 		padding: clamp(5.25rem, 18vw, 6rem) clamp(1rem, 4vw, 2rem) var(--hero-pb);
 	}
 }
@@ -372,7 +373,7 @@ main {
 .hero-line {
 	display: block;
 	white-space: nowrap;
-	font-size: clamp(1.7rem, min(8.9vw, 15.5vh), 9rem);
+	font-size: var(--hero-fs);
 }
 
 .hero-line--top {
@@ -385,7 +386,8 @@ main {
 	font-family: var(--font-display);
 	font-weight: 900;
 	letter-spacing: -0.06em;
-	font-size: clamp(2.6rem, min(13.6vw, 23.5vh), 13.75rem);
+	/* Inter Black renders PORTFOLIO at 5.24× its size; 7.99 / 5.24 = 1.525 keeps both lines the same width */
+	font-size: calc(var(--hero-fs) * 1.525);
 	line-height: 0.82;
 }
 
@@ -438,7 +440,8 @@ main {
 .hero-layer--photo img {
 	display: block;
 	width: auto;
-	height: min(1000px, calc(100dvh - 7.5rem));
+	/* 6.667 × hero font = the 1080p composition, so the photo shrinks with the text when the text hits its cap */
+	height: min(1000px, calc(100dvh - 7.5rem), calc(var(--hero-fs) * 6.667));
 	max-width: 92vw;
 	object-fit: contain;
 	object-position: bottom;
@@ -810,7 +813,7 @@ a.entry-role:focus-visible {
 
 .entries-more > summary::after {
 	content: '+';
-	font-size: var(--fs-title);
+	font-size: var(--fs-body);
 	line-height: 1;
 	letter-spacing: 0;
 	color: var(--accent);
@@ -894,7 +897,7 @@ a.work:hover .work-cta {
 
 .work h3 {
 	margin: 0 0 0.5rem;
-	font-size: var(--fs-title);
+	font-size: var(--fs-body);
 	font-weight: 700;
 	line-height: 1.15;
 	letter-spacing: -0.015em;
@@ -904,7 +907,7 @@ a.work:hover .work-cta {
 .work p {
 	margin: 0;
 	color: var(--ink-mid);
-	font-size: var(--fs-body);
+	font-size: var(--fs-small);
 	line-height: 1.6;
 	max-width: 58ch;
 }
@@ -1017,7 +1020,7 @@ a.work:hover .work-cta {
 	grid-row: 2;
 	min-width: 0;
 	overflow-wrap: anywhere;
-	font-size: var(--fs-title);
+	font-size: var(--fs-body);
 	font-weight: 600;
 	color: var(--ink-hi);
 }
@@ -1026,7 +1029,7 @@ a.work:hover .work-cta {
 	grid-column: 2;
 	grid-row: 1 / span 2;
 	align-self: center;
-	font-size: var(--fs-title);
+	font-size: var(--fs-body);
 	color: var(--ink-low);
 	transition: transform 240ms ease, color 240ms ease;
 }
@@ -1103,13 +1106,6 @@ a.work:hover .work-cta {
 }
 
 @media (max-width: 760px) {
-	.hero-line {
-		font-size: clamp(2rem, min(10.48vw, 18vh), 10.5rem);
-	}
-	.hero-line--bottom {
-		font-size: clamp(3rem, min(16vw, 27vh), 16rem);
-	}
-
 	.band {
 		padding: 1rem clamp(1rem, 4vw, 1.5rem) 0.75rem;
 	}
