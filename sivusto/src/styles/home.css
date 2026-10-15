@@ -966,13 +966,16 @@ a.work:hover .work-cta {
 	min-width: 0;
 }
 
+/* Project name uses the same orange label style as the group labels and contact labels */
 .work h3 {
-	margin: 0 0 0.5rem;
-	font-size: var(--fs-body);
-	font-weight: 700;
-	line-height: 1.15;
-	letter-spacing: -0.015em;
-	color: var(--ink-hi);
+	margin: 0 0 0.6rem;
+	font-family: var(--font-sans);
+	font-size: var(--fs-label);
+	font-weight: 400;
+	line-height: 1.6;
+	letter-spacing: var(--label-tracking);
+	text-transform: uppercase;
+	color: var(--accent);
 }
 
 .work p {
