@@ -777,16 +777,10 @@ a.entry-role:focus-visible {
 	font-size: var(--fs-small);
 }
 
-.entry-desc,
 .entry-points li {
 	color: var(--ink-mid);
 	font-size: var(--fs-small);
 	line-height: 1.55;
-}
-
-.entry-desc {
-	margin: 0.55rem 0 0;
-	max-width: 60ch;
 }
 
 .entry-points {
