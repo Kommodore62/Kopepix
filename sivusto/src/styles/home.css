@@ -16,16 +16,15 @@
 	--font-sans: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
 	/* Hero fonts only — kept untouched by the site-wide font change */
 	--font-display: 'Inter', 'Segoe UI', system-ui, sans-serif;
-	/* Type scale: h2 31.25 (+3 steps of 1.25 on a 16px body), sub 17 / 15 on phones, body 16.
-	   --fs-sub is below the +1 step (20) on purpose: it is set in orange caps, and caps read about 1.4x
-	   larger than lowercase at the same size, so 20px caps looked nearly as big as the h2. */
+	/* Type scale: h2 31.25 (+3 steps of 1.25 on a 16px body), body 16, small 14, label 12.
+	   Subheadings (group labels, project names) sit at body size and rank by weight and colour:
+	   caps read about 1.4x larger than lowercase, so 20px caps looked nearly as big as the h2. */
 	--fs-label: 0.75rem;
 	--fs-small: 0.875rem;
 	--fs-body: 1rem;
-	--fs-sub: clamp(0.9375rem, 0.869rem + 0.28vw, 1.0625rem);
 	--fs-display: clamp(1.5rem, 1.3rem + 0.95vw, 1.953rem);
 	--label-tracking: 0.22em;
-	/* Caps at this size need less tracking than the 12px labels */
+	/* Caps at body size need less tracking than the 12px labels */
 	--sub-tracking: 0.1em;
 	/* Section rhythm: generous space between sections, tight space from divider to content */
 	--space-section: clamp(3rem, 8vw, 7.5rem);
@@ -725,13 +724,13 @@ main {
 	gap: clamp(2rem, 5vw, 5rem);
 }
 
-/* Subheadings: group labels and project names. Contact labels are field labels and stay at body-small. */
+/* Group label: set like the job titles (.entry-role: body size, bold) but orange caps. Contact labels are field labels and stay at body-small. */
 .col-label {
 	display: block;
 	margin: 0 0 1.25rem;
 	font-family: var(--font-sans);
-	font-size: var(--fs-sub);
-	font-weight: 400;
+	font-size: var(--fs-body);
+	font-weight: 600;
 	letter-spacing: var(--sub-tracking);
 	text-transform: uppercase;
 	color: var(--accent);
@@ -900,6 +899,7 @@ a.entry-role:focus-visible {
 		margin-bottom: 0.5rem;
 		padding-bottom: 0.75rem;
 		border-bottom-color: var(--rule-strong);
+		font-weight: 700;
 	}
 
 	.entries + .col-label {
