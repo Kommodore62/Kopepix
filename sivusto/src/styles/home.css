@@ -1077,15 +1077,23 @@ a.work:hover .work-cta {
 	color: var(--accent);
 }
 
+/* Same orange caps as .col-label (body size, bold) so every orange label on the page matches */
 .contact-label {
 	grid-column: 1;
 	grid-row: 1;
 	font-family: var(--font-sans);
-	font-size: var(--fs-small);
-	letter-spacing: var(--label-tracking);
+	font-size: var(--fs-body);
+	font-weight: 600;
+	letter-spacing: var(--sub-tracking);
 	text-transform: uppercase;
 	color: var(--accent);
 	margin-bottom: 0.5rem;
+}
+
+@media (max-width: 880px) {
+	.contact-label {
+		font-weight: 700;
+	}
 }
 
 .contact-card strong {
